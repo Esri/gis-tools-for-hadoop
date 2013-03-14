@@ -1,7 +1,7 @@
 hadoop-spatial-tools
 ====================
 
-The Hadoop Spatial Tools are a collection of ArcGIS tools to leverage the Hadoop-Spatial-Framework for spatial analysis of big data.  The tools make use of the [Hadoop-GP-Tools](https://github.com/Esri/hadoop-gp-tools) toolbox, and the [Hadoop-Spatial-Framework](https://github.com/Esri/spatial-framework-hadoop) to integrate with a Hadoop cluster.
+The Hadoop Spatial Tools are a collection of ArcGIS tools to leverage the Spatial Framework for Hadoop for spatial analysis of big data.  The tools make use of the [GP Tools for Hadoop](https://github.com/Esri/gp-tools-hadoop) toolbox, and the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop) to integrate with a Hadoop cluster.
 
 ## Features
 
