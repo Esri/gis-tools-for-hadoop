@@ -5,6 +5,15 @@ The Hadoop Spatial Tools are a collection of ArcGIS tools to leverage the Hadoop
 
 ## Features
 
+**In this Repository...**
+* Customized tools for solving specific types of problems that build on the Java libraries and GP tools provided below
+
+**Resources for building custom tools**
+* [Hadoop Utilities](https://github.com/Esri/hadoop-tools) - Java helper utilities for Hadoop developers
+* [Esri Geometry API](https://github.com/Esri/geometry-api-java) - Java geometry library for spatial data processing 
+* [Hive Spatial Library](https://github.com/ArcGIS/hive-spatial) - Hive User Defined Functions built on top of the geometry API for spatial data processing in Hive
+* [Geoprocessing Tools](https://github.com/ArcGIS/hadoop-gp-tools) - ArcGIS Geoprocessing tools for Hadoop
+
 ## Instructions
 
 ## Requirements
