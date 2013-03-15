@@ -4,6 +4,7 @@ This sample tool aggregates earthquake data for counties in California using a c
 * Command Line (using **Oozie** workflows)
 * ArcGIS Geoprocessing Tools
 
+
 ### Prerequisites
 
 * Access to a Hadoop cluster, or a local distribution of Hadoop
@@ -34,6 +35,12 @@ SAMPLE_DIR=/user/mike/samples/point-in-polygon
 **Hadoop**
 
 * Run the basic sample script `run-sample-basic.sh`
+
+> The job driver `main()` takes three arguments.  The driver class is only used when running the job
+> directly from the command line (and not using Oozie)
+>  1. Path to Esri JSON file (counties.json)  
+>  2. Path to Input file (earthquakes.csv)  
+>  3. Ouput Path  
 
 **Oozie**
 
