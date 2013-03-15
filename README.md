@@ -8,7 +8,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 
 ## Features
 
-**In this Repository...**
+**In this Repository**
 * Customized tools for solving specific types of problems that build on the Java libraries and GP tools provided below
 
 **Resources for building custom tools**
