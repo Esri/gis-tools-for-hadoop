@@ -22,9 +22,9 @@ cd ~/esri-git
 git clone git@github.com:Esri/spatial-tools-hadoop.git
 ```
 
-You should be able to navigate to `sample-workflows`
+You should be able to navigate to `tools`
 
 ```bash
-cd ~/esri-git/spatial-tools-hadoop/sample-workflows/
+cd ~/esri-git/spatial-tools-hadoop/tools/
 ```
 
