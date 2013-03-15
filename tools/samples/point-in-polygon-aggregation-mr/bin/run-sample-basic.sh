@@ -5,17 +5,18 @@ source ./sample-config.sh
 hadoop fs -rm -r $SAMPLE_DIR
 
 echo "* setting up sample in $SAMPLE_DIR"
-hadoop fs -mkdir $SAMPLE_DIR $DATA_DIR
+hadoop fs -mkdir $SAMPLE_DIR $DATA_DIR/counties-data $DATA_DIR/earthquake-data
 
 echo "* copying sample data to HDFS"
-hadoop fs -put ../../sample-data/ca_counties.json ../../sample-data/earthquakes.csv $DATA_DIR
+hadoop fs -put ../../data/counties-data/* $DATA_DIR/counties-data
+hadoop fs -put ../../data/earthquake-data/* $DATA_DIR/earthquake-data
 
 echo "* executing MapReduce job"
 hadoop jar ../aggregation-sample.jar \
            com.esri.hadoop.examples.AggregationSampleDriver \
            -libjars ../../lib/esri-geometry-api.jar,../../lib/hadoop-utilities.jar \
-           hdfs://$DATA_DIR/ca_counties.json \
-           hdfs://$DATA_DIR/earthquakes.csv \
+           hdfs://$DATA_DIR/counties-data/california-counties.json \
+           hdfs://$DATA_DIR/earthquake-data/earthquakes.csv \
            hdfs://$OUTPUT_DIR
 
 
