@@ -1,6 +1,13 @@
 #!/bin/bash
 
-source ./sample-config.sh
+if [ -e sample-config.sh ] 
+then 
+source sample-config.sh
+else
+echo "ERROR: Could not find configuration file in the current directory.  Are you in the right directory?"
+exit 1
+fi
+
 
 hadoop fs -rm -r $SAMPLE_DIR
 
