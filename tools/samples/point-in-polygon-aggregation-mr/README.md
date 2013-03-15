@@ -15,13 +15,12 @@ This sample tool aggregates earthquake data for counties in California using a c
 
 ### Command Line ##
 
-The **run-sample** scripts are pretty straight forward and can be opened to see how they work.
-
 **Setup**
 
-1. Make sure `hadoop` is set in your path environment.
-2. Move to `point-in-polygon-aggregation-mr/bin`.
-3. Edit the sample configuration script `sample-config.sh` to point to your Hadoop cluster.
+1. Clone the repository
+2. Make sure `hadoop` is set in your path environment.
+3. Move to `point-in-polygon-aggregation-mr/bin`.
+4. Edit the sample configuration script `sample-config.sh` to point to your Hadoop cluster.
 
 
 ```bash
@@ -39,6 +38,8 @@ SAMPLE_DIR=/user/mike/samples/point-in-polygon
 **Oozie**
 
 * Run the Oozie sample script `run-sample-oozie.sh`
+
+> The **run-sample** scripts are pretty straight forward and can be opened to see how they work.
 
 ***
 
