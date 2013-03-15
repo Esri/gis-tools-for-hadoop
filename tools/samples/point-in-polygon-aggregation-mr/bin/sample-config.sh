@@ -1,9 +1,9 @@
 #!/bin/bash
 
-NAME_NODE_URL=hdfs://python1.esri.com:8020
-JOB_TRACKER_URL=python1.esri.com:8021
+NAME_NODE_URL=hdfs:/localhost:8020
+JOB_TRACKER_URL=localhost:8021
 
-SAMPLE_DIR=/user/mich7085/samples/pinp
+SAMPLE_DIR=/user/mike/samples/pinp
 
 JOB_DIR=$SAMPLE_DIR/job
 LIB_DIR=$SAMPLE_DIR/lib
