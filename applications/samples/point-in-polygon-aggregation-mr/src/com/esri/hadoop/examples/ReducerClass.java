@@ -25,8 +25,9 @@ public class ReducerClass extends Reducer<Text, EarthquakeDataWritable, Text, Ea
 			float minMag = data.getMin();
 			float maxMag = data.getMax();
 			
+			agg_avgMag = (agg_cnt == 0) ? avgMag :
+			    (agg_avgMag * agg_cnt + avgMag * cnt) / (agg_cnt + cnt);
 			agg_cnt += cnt;
-			agg_avgMag = (agg_avgMag == 0) ? avgMag : (agg_avgMag + avgMag) / 2;
 			
 			agg_minMag = Math.min(agg_minMag, minMag);
 			agg_maxMag = Math.max(agg_maxMag, maxMag);
