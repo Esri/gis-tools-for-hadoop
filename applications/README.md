@@ -1,3 +1,3 @@
-## Tools
+## Applications
 
-All custom tools will be placed under this directory in the repository.
+All custom applications will be placed under this directory in the repository.
