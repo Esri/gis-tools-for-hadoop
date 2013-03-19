@@ -1,7 +1,7 @@
 spatial-tools-hadoop
 ====================
 
-The Spatial Applications for Hadoop are a collection of ArcGIS tools that leverage the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop)
+The Spatial Applications for Hadoop are a collection of spatial applications that leverage the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop)
 for spatial analysis of big data.  The tools make use of 
 the [GP Tools for Hadoop](https://github.com/Esri/gp-tools-hadoop) toolbox,
 to provide access to the Hadoop system from the ArcGIS Geoprocessing environment. 
