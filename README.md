@@ -1,21 +1,27 @@
 spatial-tools-hadoop
 ====================
 
-The Spatial Tools for Hadoop are a collection of ArcGIS tools that leverage the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop)
+The Spatial Applications for Hadoop are a collection of spatial applications that leverage the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop)
 for spatial analysis of big data.  The tools make use of 
 the [GP Tools for Hadoop](https://github.com/Esri/gp-tools-hadoop) toolbox,
 to provide access to the Hadoop system from the ArcGIS Geoprocessing environment. 
 
 ## Features
 
-**In this Repository**
-* Customized tools for solving specific types of problems that build on the Java libraries and GP tools provided below
+* Customized applications for solving specific types of problems that build on the Java libraries and GP tools provided below
+  
 
+
+![Applications Breakdown](http://esri.github.com/spatial-tools-hadoop/images/applications-breakdown.png)
+  
+  
 **Resources for building custom tools**
-* [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop) - Java helper utilities for Hadoop developers
-* [Geometry API Java](https://github.com/Esri/geometry-api-java) - Java geometry library for spatial data processing 
-* [Spatial Tools for Hive](https://github.com/Esri/spatial-tools-hive) - Hive User Defined Functions built on top of the geometry API for spatial data processing in Hive
+* [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop) 
+ * Java helper utilities for Hadoop developers
+ * Hive spatial user-definied functions 
+* [Esri Geometry API Java](https://github.com/Esri/geometry-api-java) - Java geometry library for spatial data processing 
 * [Geoprocessing Tools](https://github.com/Esri/gp-tools-hadoop) - ArcGIS Geoprocessing tools for Hadoop
+
 
 ## Instructions
 
