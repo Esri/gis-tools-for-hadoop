@@ -1,12 +1,13 @@
-This sample tool aggregates earthquake data for counties in California using a custom MapReduce job.  Three ways to run the sample are provided :
+This sample tool aggregates earthquake data for counties in California using a custom MapReduce job.  Two ways to run the sample are provided :
 
-* Command Line (using **Hadoop** directly)
-* Command Line (using **Oozie** workflows)
+* Command-line using the Hadoop CLI (Command-Line Interface)
 * ArcGIS Geoprocessing Tools
 
+> The automated scripts and models provided attempt to remove some of the complexity that is inherent in Hadoop, but there will be some initial configuration required to make them work with your system.
 
-### Prerequisites
+#### Prerequisites
 
+* Have a clone of this repository
 * Access to a Hadoop cluster, or a local distribution of Hadoop
 * A Git client that can pull from a GitHub repository
 * A Unix environment is **highly** recommended for command line usage
@@ -16,25 +17,19 @@ This sample tool aggregates earthquake data for counties in California using a c
 
 ### Command Line ##
 
-**Setup**
+1. Make sure `hadoop` is set in your path environment.
+2. Move to `point-in-polygon-aggregation-mr/bin`.
+3. Edit the sample configuration script `sample-config.sh` to point to your Hadoop cluster.
+4. Run the basic sample script `run-sample-basic.sh`
 
-1. Clone the repository
-2. Make sure `hadoop` is set in your path environment.
-3. Move to `point-in-polygon-aggregation-mr/bin`.
-4. Edit the sample configuration script `sample-config.sh` to point to your Hadoop cluster.
-
-
+`sample-config.sh`
 ```bash
-NAME_NODE_URL=hdfs:/localhost:8020
+NAME_NODE_URL=hdfs://localhost:8020
 JOB_TRACKER_URL=localhost:8021
 
 # this is the directory in HDFS where all the sample files will go
-SAMPLE_DIR=/user/mike/samples/point-in-polygon
+SAMPLE_DIR=/user/name/samples/point-in-polygon
 ```
-
-**Hadoop**
-
-* Run the basic sample script `run-sample-basic.sh`
 
 > The job driver `main()` takes three arguments.  The driver class is only used when running the job
 > directly from the command line (and not using Oozie)
@@ -42,13 +37,10 @@ SAMPLE_DIR=/user/mike/samples/point-in-polygon
 >  2. Path to Input file (earthquakes.csv)  
 >  3. Ouput Path  
 
-**Oozie**
-
-* Run the Oozie sample script `run-sample-oozie.sh`
-
 > The **run-sample** scripts are pretty straight forward and can be opened to see how they work.
 
 ***
 
 ### Geoprocessing tools ###
-**Not implemented yet**
+
+To be conitinued
