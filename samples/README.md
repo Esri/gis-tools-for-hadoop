@@ -1,3 +1,3 @@
-## Sample Applications
+## Sample Tools
 
-These applications tools are provided as references for building custom spatial applications.
+These sample tools are provided as references for building custom spatial tools.
