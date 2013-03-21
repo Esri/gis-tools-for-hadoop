@@ -5,6 +5,7 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
@@ -17,15 +18,17 @@ import com.esri.json.EsriFeature;
 import com.esri.json.EsriFeatureClass;
 
 
-public class MapperClass extends Mapper<LongWritable, Text, Text, EarthquakeDataWritable> {
+public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 	
 	// column indices for values in the CSV
-	static final int COL_LAT = 1;
-	static final int COL_LONG = 2;
-	static final int COL_MAG = 4;
+	int longitudeIndex;
+	int latitudeIndex;
+	
+	
+	int COL_MAG = 4;
 	
 	// in ca_counties.json, the label for the polygon is "NAME"
-	static final String LABEL_ATTR = "NAME";
+	String labelAttribute;
 	
 	EsriFeatureClass featureClass;
 	SpatialReference spatialReference;
@@ -38,14 +41,23 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, EarthquakeData
 	{
 		Configuration config = context.getConfiguration();
 		
+		// first pull values from the configuration		
+		String featuresPath = config.get("sample.features.input");
+		labelAttribute = config.get("sample.features.keyattribute", "NAME");
+		latitudeIndex = config.getInt("samples.csvdata.columns.lat", 1);
+		longitudeIndex = config.getInt("samples.csvdata.columns.long", 2);
+		
+		
+		
 		FSDataInputStream iStream = null;
 		
 		spatialReference = SpatialReference.create(4326);
 		
+		
 		try {
 			// load the JSON file provided as argument 0
 			FileSystem hdfs = FileSystem.get(config);
-			iStream = hdfs.open(new Path(config.get("com.esri.geometry")));
+			iStream = hdfs.open(new Path(featuresPath));
 			featureClass = EsriFeatureClass.fromJson(iStream);
 		} 
 		catch (Exception e)
@@ -81,9 +93,8 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, EarthquakeData
 		
 		// Note: We know the data coming in is clean, but in practice it's best not to
 		//       assume clean data.  This is especially true with big data processing
-		float latitude = Float.parseFloat(values[COL_LAT]);
-		float longitude = Float.parseFloat(values[COL_LONG]);
-		float magnitude = Float.parseFloat(values[COL_MAG]);
+		float latitude = Float.parseFloat(values[latitudeIndex]);
+		float longitude = Float.parseFloat(values[longitudeIndex]);
 		
 		// Create our Geometry directly from longitude and latitude
 		Geometry point = new Point(longitude, latitude);
@@ -91,21 +102,19 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, EarthquakeData
 		boolean found = false;
 
 		// Each map only processes one earthquake record at a time, so we start out with our count 
-		// as 1, and our avg/min/max values as the magnitude
-		// Aggregation will occur in the combine/reduce stages
-		EarthquakeDataWritable data = new EarthquakeDataWritable(1, magnitude, magnitude, magnitude);		
-
+		// as 1.  Aggregation will occur in the combine/reduce stages
+		IntWritable one = new IntWritable(1);
+		
+		
 		// Loop through every feature in our feature class
-		// Note: Ideally you would build an index, such as a quadtree, (http://en.wikipedia.org/wiki/Quadtree)
-		// for significantly faster hit tests with larger counts of features
 		for (EsriFeature feature : featureClass.features)
 		{
 			if (GeometryEngine.contains(feature.geometry, point, spatialReference))
 			{
-				String name = (String)feature.attributes.get(LABEL_ATTR);
+				String name = (String)feature.attributes.get(labelAttribute);
 				if (name == null) name = "???";
 				
-				context.write(new Text(name), data);
+				context.write(new Text(name), one);
 				
 				found = true;
 				break;
@@ -114,7 +123,7 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, EarthquakeData
 		
 		if (!found)
 		{
-			context.write(new Text("Outside California"), data);
+			context.write(new Text("*Outside Feature Set"), one);
 		}
 	}
 }

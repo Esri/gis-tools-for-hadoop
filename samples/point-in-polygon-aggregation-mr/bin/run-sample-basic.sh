@@ -12,7 +12,7 @@ fi
 hadoop fs -rm -r $SAMPLE_DIR
 
 echo "* setting up sample in $SAMPLE_DIR"
-hadoop fs -mkdir $SAMPLE_DIR $DATA_DIR/counties-data $DATA_DIR/earthquake-data
+hadoop fs -mkdir $SAMPLE_DIR $DATA_DIR $DATA_DIR/counties-data $DATA_DIR/earthquake-data
 
 echo "* copying sample data to HDFS"
 hadoop fs -put ../../data/counties-data/* $DATA_DIR/counties-data

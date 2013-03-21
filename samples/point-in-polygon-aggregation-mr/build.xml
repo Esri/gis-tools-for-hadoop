@@ -1,0 +1,39 @@
+<project name="esri-spatial-all" default="all">
+
+	<property file="build.properties" />
+	<property name="dir.build" value="build" />
+
+	<path id="class.path">
+		<fileset dir="${dir.hadoop.lib}">
+			<include name="**/hadoop-core-*.jar"/>
+			<include name="**/hadoop-common-*.jar"/>
+			<include name="**/commons-cli-*.jar"/>
+			<include name="**/hadoop-mapreduce-client-*.jar"/>
+		    <include name="**/jackson-*.jar"/>
+			<include name="**/commons-logging-*"/>
+		</fileset>
+		<fileset dir="${dir.esri.lib}">
+			<include name="*.jar" />
+		</fileset>
+	</path>
+
+	<target name="init">
+		<mkdir dir="${dir.build}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="src" destdir="${dir.build}">
+			<classpath refid="class.path"/>	
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar jarfile="./aggregation-sample.jar" basedir="${dir.build}"/>
+	</target>
+
+	<target name="clean">
+		<delete dir="build" />
+	</target>
+	
+	<target name="all" depends="jar"/>
+</project>

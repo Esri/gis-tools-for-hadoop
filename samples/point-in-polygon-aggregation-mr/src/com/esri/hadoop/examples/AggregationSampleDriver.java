@@ -2,6 +2,7 @@ package com.esri.hadoop.examples;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
+import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
@@ -32,14 +33,17 @@ public class AggregationSampleDriver
 			throw new IllegalArgumentException();
 		}
 		
-		config.set("com.esri.geometry", args[0]);	
+		config.set("sample.features.input", args[0]);
+		config.set("sample.features.keyattribute", "NAME");
+		config.setInt("samples.csvdata.columns.lat", 1);
+		config.setInt("samples.csvdata.columns.long", 2);
 		
 		Job job = new Job(config);
 
 		job.setJobName("Earthquake Data Aggregation Sample");
 
 		job.setOutputKeyClass(Text.class);
-		job.setOutputValueClass(EarthquakeDataWritable.class);
+		job.setOutputValueClass(IntWritable.class);
 		
 		job.setMapperClass(MapperClass.class);
 		job.setReducerClass(ReducerClass.class);
@@ -54,7 +58,6 @@ public class AggregationSampleDriver
 		TextInputFormat.setInputPaths(job, new Path(args[1]));
 		TextOutputFormat.setOutputPath(job, new Path(args[2]));
 
-		// JobClient.runJob(conf);
 		job.setJarByClass(AggregationSampleDriver.class);
 
 		return job.waitForCompletion(true)?  0 : 1;
