@@ -1,4 +1,4 @@
-spatial-tools-hadoop
+gis-tools-for-hadoop
 ====================
 
 The GIS Tools for Hadoop are a collection of GIS tools that leverage the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-for-hadoop)
