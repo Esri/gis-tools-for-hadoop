@@ -1,9 +1,9 @@
 spatial-tools-hadoop
 ====================
 
-The GIS Tools for Hadoop are a collection of GIS tools that leverage the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop)
+The GIS Tools for Hadoop are a collection of GIS tools that leverage the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-for-hadoop)
 for spatial analysis of big data.  The tools make use of 
-the [Geoprocessing Tools for Hadoop](https://github.com/Esri/gp-tools-hadoop) toolbox,
+the [Geoprocessing Tools for Hadoop](https://github.com/Esri/gp-tools-for-hadoop) toolbox,
 to provide access to the Hadoop system from the ArcGIS Geoprocessing environment. 
 
 ## Features
@@ -12,14 +12,14 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 * Templates for building custom tools that solve specific problems
 
 
-![GIS Tools Breakdown](http://esri.github.com/spatial-tools-hadoop/images/gis-tools-breakdown.png)
+![GIS Tools Breakdown](http://esri.github.com/gis-tools-for-hadoop/images/gis-tools-breakdown.png)
 
 **Resources for building custom tools**
-* [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-hadoop) 
+* [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-for-hadoop) 
  * Java helper utilities for Hadoop developers
  * Hive spatial user-definied functions 
 * [Esri Geometry API Java](https://github.com/Esri/geometry-api-java) - Java geometry library for spatial data processing 
-* [Geoprocessing Tools](https://github.com/Esri/gp-tools-hadoop) - ArcGIS Geoprocessing tools for Hadoop
+* [Geoprocessing Tools](https://github.com/Esri/gp-tools-for-hadoop) - ArcGIS Geoprocessing tools for Hadoop
 
 
 ## Instructions
