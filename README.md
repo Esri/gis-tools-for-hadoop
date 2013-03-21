@@ -10,7 +10,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 
 * Sample tools that demonstrate full stack implementations of all the resources provided to solve GIS problems using Hadoop
 * Templates for building custom tools that solve specific problems
-* 
+
 
 ![GIS Tools Breakdown](http://esri.github.com/spatial-tools-hadoop/images/gis-tools-breakdown.png)
 
