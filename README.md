@@ -38,7 +38,7 @@ Other requirements may include:
 * [Hive](http://hive.apache.org/) in order to run Hive queries
 * [Apache Oozie Workflow Scheduler](http://oozie.apache.org/) for workflow scheduling
 
-Additional requirements will be spelled out by tools or templates
+Additional requirements will be spelled out by tools or templates.
 
 ## Resources
 
