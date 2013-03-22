@@ -1,18 +1,14 @@
-<project name="esri-spatial-all" default="all">
+<project name="esri-spatial-all" default="all" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
 
-	<property file="build.properties" />
 	<property name="dir.build" value="build" />
 
-	<path id="class.path">
-		<fileset dir="${dir.hadoop.lib}">
-			<include name="**/hadoop-core-*.jar"/>
-			<include name="**/hadoop-common-*.jar"/>
-			<include name="**/commons-cli-*.jar"/>
-			<include name="**/hadoop-mapreduce-client-*.jar"/>
-		    <include name="**/jackson-*.jar"/>
-			<include name="**/commons-logging-*"/>
-		</fileset>
-		<fileset dir="${dir.esri.lib}">
+	<artifact:dependencies pathId="dependencies.class.path">
+		<dependency groupId="org.apache.hadoop" artifactId="hadoop-core" version="0.20.2"/>
+		<dependency groupId="org.codehaus.jackson" artifactId="jackson-core-asl" version="1.9.12"/>
+	</artifact:dependencies>
+	
+	<path id="local.class.path">
+		<fileset dir="../lib">
 			<include name="*.jar" />
 		</fileset>
 	</path>
@@ -23,7 +19,8 @@
 
 	<target name="compile" depends="init">
 		<javac srcdir="src" destdir="${dir.build}">
-			<classpath refid="class.path"/>	
+			<classpath refid="dependencies.class.path"/>	
+			<classpath refid="local.class.path"/>	
 		</javac>
 	</target>
 
