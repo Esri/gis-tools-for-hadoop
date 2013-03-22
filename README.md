@@ -30,12 +30,12 @@ Start out by navigating to [samples](https://github.com/Esri/gis-tools-for-hadoo
 
 Requirements will differ depending on the needs of each tool or template, but at a minimum you will need:
 
-* Access to a Hadoop cluster
-* ArcGIS for geoprocessing and visualization
+* Access to an [Apache Hadoop](http://hadoop.apache.org) cluster
+* [ArcGIS](http://www.esri.com/) Desktop or Server for geoprocessing and visualization
 
 Other requirements may include:
 
-* [Hive](http://hive.apache.org/) in order to run Hive queries
+* [Apache Hive](http://hive.apache.org/) in order to run Hive queries
 * [Apache Oozie Workflow Scheduler](http://oozie.apache.org/) for workflow scheduling
 
 Additional requirements will be spelled out by tools or templates.
@@ -56,3 +56,21 @@ Anyone and everyone is welcome to contribute.
 
 ## Licensing
 Copyright 2013 Esri
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
+A copy of the license is available in the repository's [license.txt]( https://raw.github.com/Esri/gis-tools-for-hadoop/master/license.txt) file.
+
+[](Esri Tags: ArcGIS, GIS, Analysis, Big Data, GP, Geoprocessing, Hadoop, Hive, Oozie, Workflow, JSON, Java)
+[](Esri Language: Python)
+
