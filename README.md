@@ -28,10 +28,10 @@ Start out by navigating to [samples](https://github.com/Esri/gis-tools-for-hadoo
 
 ## Requirements
 
-Requirements will differ depending on the needs of each tool or template, but at a minimum you will need:
+Requirements will differ depending on the needs of each tool or template. At a minimum, you will need:
 
 * Access to an [Apache Hadoop](http://hadoop.apache.org) cluster
-* [ArcGIS](http://www.esri.com/) Desktop or Server for geoprocessing and visualization
+* [ArcGIS for Desktop](http://www.esri.com/software/arcgis/arcgis-for-desktop) or [Server](http://www.esri.com/software/arcgis/arcgisserver) for geoprocessing and visualization
 
 Other requirements may include:
 
