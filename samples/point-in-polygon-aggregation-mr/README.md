@@ -13,6 +13,10 @@ This sample tool aggregates earthquake data for counties in California using a c
 * A Unix environment is **highly** recommended for command line usage
 * ArcGIS is necessary to run the GP tools
 
+#### Build System
+
+The build system used for this sample is [Apache Ant](http://ant.apache.org/) with [Maven Ant Tasks](http://maven.apache.org/ant-tasks/download.html) for dependency management.  
+
 ***
 
 ### Command Line ##
