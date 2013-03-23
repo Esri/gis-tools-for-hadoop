@@ -1,175 +1,82 @@
+<!DOCTYPE html>
 <html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
 
-<head>
-<meta name=Title content="">
-<meta name=Keywords content="">
-<meta http-equiv=Content-Type content="text/html; charset=macintosh">
-<meta name=Generator content="Microsoft Word 14 (filtered)">
-<style>
-<!--
- /* Font Definitions */
-@font-face
-	{font-family:"Courier New";
-	panose-1:2 7 3 9 2 2 5 2 4 4;}
-@font-face
-	{font-family:Wingdings;
-	panose-1:5 0 0 0 0 0 0 0 0 0;}
-@font-face
-	{font-family:"\FF2D\FF33 \660E\671D";
-	panose-1:0 0 0 0 0 0 0 0 0 0;}
-@font-face
-	{font-family:"\FF2D\FF33 \660E\671D";
-	panose-1:0 0 0 0 0 0 0 0 0 0;}
-@font-face
-	{font-family:Cambria;
-	panose-1:2 4 5 3 5 4 6 3 2 4;}
- /* Style Definitions */
-p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin:0in;
-	margin-bottom:.0001pt;
-	font-size:12.0pt;
-	font-family:Cambria;}
-a:link, span.MsoHyperlink
-	{color:blue;
-	text-decoration:underline;}
-a:visited, span.MsoHyperlinkFollowed
-	{color:purple;
-	text-decoration:underline;}
-p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
-	{margin-top:0in;
-	margin-right:0in;
-	margin-bottom:0in;
-	margin-left:.5in;
-	margin-bottom:.0001pt;
-	font-size:12.0pt;
-	font-family:Cambria;}
-.MsoChpDefault
-	{font-family:Cambria;}
-@page WordSection1
-	{size:8.5in 11.0in;
-	margin:1.0in 1.25in 1.0in 1.25in;}
-div.WordSection1
-	{page:WordSection1;}
- /* List Definitions */
-ol
-	{margin-bottom:0in;}
-ul
-	{margin-bottom:0in;}
--->
-</style>
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
 
-</head>
+    <title>GIS Tools for Hadoop by Esri</title>
+  </head>
 
-<body bgcolor=white lang=EN-US link=blue vlink=purple>
+  <body>
+    <header>
+      <div class="inner">
+        <h1>GIS Tools for Hadoop</h1>
+        <h2>Big Spatial Data Analytics for the Hadoop Framework</h2>
+        <a href="https://github.com/Esri/gis-tools-for-hadoop" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
 
-<div class=WordSection1>
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>Looking at data without location, most of the time seems like looking at just part of a story. Including location and geography in analysis reveals patterns and associations that otherwise are missed. As Big Data emerges as a new frontier for analysis, including location in Big Data is becoming significantly important.</p>
 
-<p class=MsoNormal>&nbsp;</p>
+<p>Data that includes location, and that is enhanced with geographic information in a structured form, is often referred to as Spatial Data. Doing Analysis on Spatial data requires an understanding of geometry and operations that can be preformed on it.  Enabling Big Data Frameworks to include spatial data and spatial analysis is the goal of this Esri Open Source effort.</p>
 
-<p class=MsoNormal>Looking at data without location, most of the time seems
-like looking at just part of a story. Including location and geography in
-analysis reveals patterns and associations that otherwise are missed. As Big
-Data emerges as a new frontier for analysis, including location in Big Data is
-becoming significantly important.</p>
+<p><a href="https://github.com/Esri/gis-tools-for-hadoop"><b><i>GIS
+Tools for Hadoop </i></b></a>is an open source toolkit intended for Big Spatial Data Analytics. The toolkit provides different libraries:</p>
 
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>Data that includes location, and that is enhanced with
-geographic information in a structured form, is often referred to as Spatial
-Data. Doing Analysis on Spatial data requires an understanding of geometry and
-operations that can be preformed on it. &nbsp;Enabling Big Data Frameworks to
-include spatial data and spatial analysis is the goal of this Esri Open Source
-effort.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal><a href="https://github.com/Esri/gis-tools-for-hadoop"><b><i>GIS
-Tools for Hadoop</i></b></a> is an open source toolkit intended for Big Spatial
-Data Analytics. The toolkit provides different libraries:</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoListParagraph style='text-indent:-.25in'><span>-<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><a
-href="https://github.com/Esri/geometry-api-java"><b>Esri Geometry API for Java:</b></a><b>
-</b>A generic geometry library, can be used to<b> </b>extend Hadoop core with
-vector geometry types and operations, and enables developers to build MapReduce
-applications for spatial data.</p>
-
-<p class=MsoNormal style='margin-left:.25in'>&nbsp;</p>
-
-<p class=MsoListParagraph style='text-indent:-.25in'><span>-<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><a
-href="https://github.com/Esri/spatial-framework-for-hadoop"><b>Spatial
-Framework for Hadoop</b></a><b>:</b> Extends Hive and is based on the Esri
-Geometry API, to enable Hive Query Language users to leverage a set of
-analytical functions and geometry types. In addition to some utilities for JSON
-used in ArcGIS.</p>
-
-<p class=MsoListParagraph>&nbsp;</p>
-
-<p class=MsoListParagraph style='text-indent:-.25in'><span>-<span
-style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span></span><a
-href="https://github.com/Esri/geoprocessing-tools-for-hadoop"><b>GeoProcessing
-Tools for Hadoop</b></a><b>:</b> Contains a set of ready to use ArcGIS GeoProcessing
-tools, based on the Esri Geometry API and Spatial Framework for Hadoop. Developers
-can download the source code of the tools and customize it; they can also
-create new tools and contribute it to the open source project. Through these
-tools ArcGIS users can move their spatial data and execute a pre-defined
-workflow inside Hadoop.</p>
-
-<p class=MsoListParagraph>&nbsp;</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal><a href="https://github.com/Esri/gis-tools-for-hadoop"><b><i>GIS
+<ul>
+<li>
+<a href="https://github.com/Esri/geometry-api-java"><b>Esri Geometry API for Java: </b></a><b></b>A generic geometry library, can be used to<b> </b>extend Hadoop core with vector geometry types and operations, and enables developers to build MapReduce applications for spatial data.</li>
+<li>
+<a href="https://github.com/Esri/spatial-framework-for-hadoop"><b>Spatial Framework for Hadoop</b></a><b>:</b> Extends Hive and is based on the Esri Geometry API, to enable Hive Query Language users to leverage a set of analytical functions and geometry types. In addition to some utilities for JSON used in ArcGIS.</li>
+<li>
+<a href="https://github.com/Esri/geoprocessing-tools-for-hadoop"><b>GeoProcessing Tools for Hadoop</b></a><b>:</b> Contains a set of ready to use ArcGIS GeoProcessing tools, based on the Esri Geometry API and Spatial Framework for Hadoop. Developers can download the source code of the tools and customize it; they can also create new tools and contribute it to the open source project. Through these tools ArcGIS users can move their spatial data and execute a pre-defined workflow inside Hadoop.</li>
+</ul><p>The <a href="https://github.com/Esri/gis-tools-for-hadoop"><b><i>GIS
 Tools for Hadoop</i></b></a> toolkit allows users, who want to leverage the
-Hadoop Framework, to do spatial analysis on spatial data, for example:</p>
+Hadoop Framework, to do spatial analysis on spatial data; for example:</p>
 
-<p class=MsoNormal>&nbsp;</p>
+<ol>
+<li>Run Filter and aggregate operations on billions of spatial data records inside Hadoop based on spatial criteria.</li>
+<li>Define new areas represented as polygons, and run Point in Polygon analysis on billions of spatial data records inside Hadoop.</li>
+<li>Visualize analysis results on a map with rich styling capabilities, and a rich set of base maps.</li>
+<li>Integrate your maps in reports, or publish them as map applications online.</li>
+</ol><p><strong><b>Getting started</b></strong></p>
 
-<p class=MsoNormal>- Run Filter and aggregate operations on billions of spatial
-data records inside Hadoop based on spatial criteria.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>- Define new areas represented as polygons, and run Point in
-Polygon analysis on billions of spatial data records inside Hadoop.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>- Visualize analysis results on a map with rich styling
-capabilities, and a rich set of base maps.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>- Integrate your maps in reports, or publish them as map
-applications online.</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal><b>Getting started</b></p>
-
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>Developers can get started at <a
-href="https://github.com/Esri/spatial-framework-for-hadoop">Spatial Framework
+<p>Developers can get started at <a href="https://github.com/Esri/spatial-framework-for-hadoop">Spatial Framework
 for Hadoop</a>.</p>
 
-<p class=MsoNormal>&nbsp;</p>
-
-<p class=MsoNormal>ArcGIS users can get started at <a
-href="https://github.com/Esri/geoprocessing-tools-for-hadoop">GeoProcessing
+<p>ArcGIS users can get started at <a href="https://github.com/Esri/geoprocessing-tools-for-hadoop">GeoProcessing
 Tools for Hadoop</a>.</p>
+        </section>
 
-<p class=MsoNormal>&nbsp;</p>
+        <aside id="sidebar">
+          <a href="https://github.com/Esri/gis-tools-for-hadoop/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/Esri/gis-tools-for-hadoop/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
 
-<p class=MsoNormal>&nbsp;</p>
+          <p class="repo-owner"><a href="https://github.com/Esri/gis-tools-for-hadoop"></a> is maintained by <a href="https://github.com/Esri">Esri</a>.</p>
 
-</div>
+          <p>This page was generated by <a href="pages.github.com">GitHub Pages</a> using the Architect theme by <a href="http://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
 
-</body>
-
+  
+  </body>
 </html>
