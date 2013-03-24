@@ -24,9 +24,7 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 	int longitudeIndex;
 	int latitudeIndex;
 	
-	
-	int COL_MAG = 4;
-	
+
 	// in ca_counties.json, the label for the polygon is "NAME"
 	String labelAttribute;
 	
@@ -41,6 +39,8 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 	{
 		Configuration config = context.getConfiguration();
 		
+		spatialReference = SpatialReference.create(4326);
+
 		// first pull values from the configuration		
 		String featuresPath = config.get("sample.features.input");
 		labelAttribute = config.get("sample.features.keyattribute", "NAME");
@@ -63,6 +63,7 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 		catch (Exception e)
 		{
 			e.printStackTrace();
+			throw();
 		} 
 		finally
 		{
