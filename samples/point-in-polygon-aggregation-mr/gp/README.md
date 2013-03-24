@@ -12,3 +12,41 @@
 7. At this point, you should be able to open the model `RunSampleApplication` in the `SampleModel` toolbox
 
 > If you have red X's on the GP Tools from the Hadoop Tools toolbox, you will need to double click rectangle in the model and reset the location of the tool.
+
+#### Setting up the data in Hadoop
+
+The only data file you need to put on HDFS is `samples/data/earthquakes.csv`.  The other files are required for the oozie worfklow job to run correctly.
+
+Your directory structure in HDFS should look something like this:
+
+```
+/user/ 
+  name/
+    gp-sample/
+      data/
+        earthquakes.csv
+      job/
+        aggregation-sample.jar
+        esri-geometry-api.jar
+        spatial-sdk-hadoop.jar
+        workflow.xml
+```
+
+* `esri-geometry-api.jar` and `spatial-sdk-hadoop` can be found in `samples/lib`.  
+* `aggregation-sample.jar` is in the root directory of this sample
+* `workflow.xml` is in this directory
+
+Once you have the files set up in HDFS, you will need to update your `job.properties` file to match.  Assuming the stucture provided above, this is what the properties file should look like:
+
+```
+nameNode=hdfs://localhost:8020
+jobTracker=localhost:8021
+baseDir=${nameNode}/user/name/gp-sample
+inputDir=${baseDir}/data/earthquakes.csv
+outputDir=${baseDir}/output
+sampleFeatures=${baseDir}/polygons.json
+oozie.wf.application.path=${baseDir}/job
+oozie.libpath=${oozie.wf.application.path}
+queueName=default
+user.name=hdfs
+```
