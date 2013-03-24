@@ -10,3 +10,5 @@
 5. Copy the files from `gis-tools-for-hadoop/samples/data/point-in-polygon-aggregation-mr/gp` to the same directory
 6. Now open ArcCatalog or ArcMap and connect to the sample directory
 7. At this point, you should be able to open the model `RunSampleApplication` in the `SampleModel` toolbox
+
+> If you have red X's on the GP Tools from the Hadoop Tools toolbox, you will need to double click rectangle in the model and reset the location of the tool.
