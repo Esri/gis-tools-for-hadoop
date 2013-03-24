@@ -47,4 +47,4 @@ SAMPLE_DIR=/user/name/samples/point-in-polygon
 
 ### Geoprocessing tools ###
 
-To be conitinued
+Move the directory `./gp` for instructions on how to run the sampe using the geoprocessing tools.
