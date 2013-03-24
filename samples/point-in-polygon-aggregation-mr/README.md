@@ -22,7 +22,7 @@ The build system used for this sample is [Apache Ant](http://ant.apache.org/) wi
 ### Command Line ##
 
 1. Make sure `hadoop` is set in your path environment.
-2. Move to `point-in-polygon-aggregation-mr/bin`.
+2. Move to `point-in-polygon-aggregation-mr/cmd`.
 3. Edit the sample configuration script `sample-config.sh` to point to your Hadoop cluster.
 4. Run the basic sample script `run-sample-basic.sh`
 
