@@ -51,7 +51,7 @@
     <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
 </div>
 <div class="bg" style="">
-<div style="position: absolute; transform-origin: left top 0px; transition: all 1000ms ease-in-out 500ms ; transform-style: preserve-3d; top: 50%; left: 50%; transform: perspective(1000px) scale(1);" id="impress"><div style="position: absolute; transform-origin: left top 0px; transition: all 1000ms ease-in-out 0ms ; transform-style: preserve-3d; transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) translate3d(-232.107px, -935.253px, 0px);">
+<div style="position: absolute; transform-origin: left top 0px; transition: all 1000ms ease-in-out 500ms ; transform-style: preserve-3d; top: 50%; left: 50%; transform: perspective(1108.23px) scale(0.902344);" id="impress"><div style="position: absolute; transform-origin: left top 0px; transition: all 1000ms ease-in-out 0ms ; transform-style: preserve-3d; transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) translate3d(-232.107px, -935.253px, 0px);">
 
 
 
@@ -109,7 +109,7 @@ transform: scale(1, 1)">
 <div style="font-family: 'Lato', sans-serif; font-size: 32px;
 			font-weight: ; font-style: ; color: #333;
 			text-decoration: ; text-align: ">
-<a href="http://null/">http://esri.github.com/gis-tools-for-hadoop/devsummit2013</a><br>
+<a href="http://esri.github.com/gis-tools-for-hadoop/devsummit2013">http://esri.github.com/gis-tools-for-hadoop/devsummit2013</a><br>
 </div>
 </div>
 </div>
@@ -598,6 +598,32 @@ transform: scale(1, 1)">
 			font-weight: ; font-style: ; color: #333;
 			text-decoration: ; text-align: ">
 ST_Geometry in Hive<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 150px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 36px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+SELECT counties.name, count(*) cnt FROM counties<br><br>JOIN earthquakes<br><br>WHERE <b>ST_Contains</b> (counties.boundaryshape,<br><b>ST_Point </b>(earthquakes.longitude, earthquakes.latitude))<br><br>GROUP BY counties.name<br>ORDER BY cnt desc;
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 639px; left: 59px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 21px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<a href="https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/point-in-polygon-aggregation-hive">https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/point-in-polygon-aggregation-hive</a>
 </div>
 </div>
 </div>
