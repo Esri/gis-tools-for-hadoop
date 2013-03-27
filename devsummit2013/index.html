@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html style="height: 100%;" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, minimum-scale=1, maximum-scale=1, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<title>Deck Title</title>
+
+<meta name="description" content="TODO">
+<meta name="author" content="TODO">
+
+<style>
+.componentContainer {
+    position: absolute;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.bg {
+    width: 100%;
+    height: 100%;
+}
+</style>
+<link href="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/main.css" rel="stylesheet">
+<link href="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/web-fonts.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/impress.js"></script>
+
+<link rel="shortcut icon" href="file:///net/domus/domus1/users/d/davi4338/strut/dist/favicon.png">
+<link rel="apple-touch-icon" href="file:///net/domus/domus1/users/d/davi4338/strut/dist/apple-touch-icon.png">
+</head>
+<body style="height: 100%; overflow: hidden;" class="impress-supported impress-enabled impress-on-step-1">
+
+<!-- This is a work around / hack to get the user's browser to download the fonts 
+ if they decide to save the presentation. -->
+<div style="visibility: hidden; width: 0px; height: 0px">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/Lato-Bold.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/HammersmithOne.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/Gorditas-Regular.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/FredokaOne-Regular.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/Ubuntu.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/Ubuntu-Bold.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/PressStart2P-Regular.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/Lato-BoldItalic.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/AbrilFatface-Regular.woff">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/Lato-Regular.woff">
+</div>
+
+<div class="fallback-message">
+    <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+    <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+</div>
+<div class="bg" style="">
+<div style="position: absolute; transform-origin: left top 0px; transition: all 1000ms ease-in-out 500ms ; transform-style: preserve-3d; top: 50%; left: 50%; transform: perspective(1000px) scale(1);" id="impress"><div style="position: absolute; transform-origin: left top 0px; transition: all 1000ms ease-in-out 0ms ; transform-style: preserve-3d; transform: rotateZ(0deg) rotateY(0deg) rotateX(0deg) translate3d(-232.107px, -935.253px, 0px);">
+
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(232.107px, 935.253px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-1" class="step active present" data-x="232.10666666666665" data-y="935.2533333333333" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 56px; left: 56px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 48px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Big Data: Using ArcGIS with Apache Hadoop
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 443px; left: 92px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 30px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+David Kaiser&nbsp;&nbsp;&nbsp; @ddkaiser<br>Michael Park<br><br><br>Esri DevSummit 2013<br><br>Session Offering ID: <font color="da00f7">301</font><br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 119px; left: 432px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/elephantglobeka.png">
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(238.933px, 354.987px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-2" class="step future" data-x="238.93333333333334" data-y="354.9866666666667" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 267px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 32px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<a href="http://null/">http://esri.github.com/gis-tools-for-hadoop/devsummit2013</a><br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 70px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 58px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Follow along with this presentation
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 354px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 31px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Use WiFi network: <font color="fc1408">Esri2013</font><br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(1276.59px, 348.16px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-3" class="step future" data-x="1276.5866666666666" data-y="348.16" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 58px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+GIS Tools for Hadoop<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 170px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 36px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Hadoop users often have data with spatial value, but<br>with limited options for spatially analyzing this data<br><br>Esri has released an open-source framework to enable<br>spatial-data processing in your Hadoop applications<br><br>This enables you, as a developer, to build analytical tools<br>that use both Hadoop and ArcGIS.<br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(1276.59px, 948.907px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-4" class="step future" data-x="1276.5866666666666" data-y="948.9066666666666" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 71px; left: 71px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 80px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Why is this important?<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 275px; left: 167px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 51px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Your Hadoop applications can<br>provide spatial analysis<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 497px; left: 51px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 37px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+&nbsp; ...and your users can leverage your Hadoop applications<br>from within the ArcGIS Geoprocessing environment<br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(1276.59px, 1611.09px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-5" class="step future" data-x="1276.5866666666666" data-y="1611.0933333333332" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 40px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 64px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Who is a Data Scientist?<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 221px; left: 318px;
+-webkit-transform: scale(2.04, 2.04);
+-moz-transform: scale(2.04, 2.04);
+transform: scale(2.04, 2.04)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/hellods.png">
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(1276.59px, 2307.41px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-6" class="step future" data-x="1276.5866666666666" data-y="2307.4133333333334" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 176px; left: 417px;
+-webkit-transform: scale(0.73, 0.73);
+-moz-transform: scale(0.73, 0.73);
+transform: scale(0.73, 0.73)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/HilaryMason_AwesomeNerds_Graphic.png">
+</div>
+</div>
+
+<div class="componentContainer" style="top: 40px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 63px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Finding Your Data Scientist<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 688px; left: 415px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 17px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+www.hilarymason.com
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(3420.16px, 1576.96px, 1px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(3); transform-style: preserve-3d;" id="step-7" class="step future" data-x="3420.16" data-y="1576.96" data-z="1" data-scale="3">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 36px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 63px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+GIS Tools for Hadoop<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 153px; left: 116px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 29px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<div align="left">The Hadoop 'Tools' are a combination of<br>custom Hadoop applications and ArcGIS GP Tools.<br></div>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 275px; left: 67px;
+-webkit-transform: scale(0.97, 0.97);
+-moz-transform: scale(0.97, 0.97);
+transform: scale(0.97, 0.97)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/687474703a2f2f657372692e6769746875622e636f6d2f6769732d746f6f.png">
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(2389.33px, 3017.39px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-8" class="step future" data-x="2389.3333333333335" data-y="3017.3866666666668">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 59px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Geometry API for Java<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 157px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 32px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Simple API Functions for Java<br><br>com.esri.core.geometry.*<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 330px; left: 129px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 36px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<b>Relationship Analysis</b><ul><li>equals </li><li>disjoint</li><li>touches</li><li>crosses</li><li>within</li><li>contains</li><li>overlaps</li></ul>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 330px; left: 615px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 36px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<b>Operations</b><br><ul><li>buffer</li><li>cut</li><li>clip</li><li>convexHull</li><li>intersect</li><li>union</li><li>difference</li></ul>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(3447.47px, 3017.39px, -1px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-9" class="step future" data-x="3447.4666666666667" data-y="3017.3866666666668" data-z="-1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 58px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Spatial Framework for Hadoop<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 151px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 37px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Enables developers to:<br>&nbsp; - spatially enable MapReduce applications<br><br>Enables Hadoop users to:<br>&nbsp; - run spatial Hive queries with ST_Geometry functions<br><br>Provides Java API's for:<br>&nbsp; - JSON Utility classes<br>&nbsp; - Hive UDF's<br><br>Uses the <i>Geometry API for Java</i><br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(3447.47px, 3822.93px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-10" class="step future" data-x="3447.4666666666667" data-y="3822.9333333333334">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 54px; left: 75px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 48px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Spatial Data in Hadoop<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 163px; left: 173px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 48px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 150px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 30px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+JSON files store collections of 'features'<br>&nbsp; - <b>Unenclosed JSON</b> is the dominant style; simple and appendable <br>&nbsp; - <b>Enclosed JSON</b> can optionally be used as a 'feature class'<br>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; (A collection that should be analyzed as a complete set)<br><br>Accessing geometries from Hadoop Data Sources<br>&nbsp; - <b>com.esri.hadoop.json</b>&nbsp; -&nbsp; access JSON data as arrays of 'features'<br>&nbsp; - <b>com.esri.core.geometry</b>&nbsp; -&nbsp; construct geometry from arguments<br><br><br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 615px; left: 53px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 28px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<a href="https://github.com/Esri/spatial-framework-for-hadoop/wiki/JSON-Formats">https://github.com/Esri/spatial-framework-for-hadoop/wiki/JSON-Formats</a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(4881.07px, 3392.85px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(2); transform-style: preserve-3d;" id="step-11" class="step future" data-x="4881.066666666667" data-y="3392.8533333333335" data-scale="2">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 70px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 53px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Developing Custom MapReduce Apps<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 211px; left: 164px;
+-webkit-transform: scale(1.86, 1.86);
+-moz-transform: scale(1.86, 1.86);
+transform: scale(1.86, 1.86)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/mapreduce.gif">
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(6458.03px, 3386.03px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-12" class="step future" data-x="6458.026666666667" data-y="3386.0266666666666" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 61px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Simple MapReduce Code Sample<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 642px; left: 161px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 24px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<a href="https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples">https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples</a><br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 154px; left: 276px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 16px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+void setup() {<br>&nbsp;&nbsp;&nbsp; iStream = hdfs.open(new Path(config.get(“input")));<br>&nbsp;&nbsp;&nbsp; featureClass = EsriFeatureClass.fromJson(iStream);<br>}<br><br>void Map(Long key, Text value) {<br>&nbsp;&nbsp;&nbsp; float longitude = Float.parseFloat(values[COL_LONG]);<br>&nbsp;&nbsp;&nbsp; float latitude =&nbsp; Float.parseFloat(values[COL_LAT]);<br>&nbsp;&nbsp;&nbsp; Geometry point = new Point(longitude, latitude);<br><br>&nbsp;&nbsp;&nbsp; for (EsriFeature feature : featureClass.features) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if (GeometryEngine.contains(feature.geometry, point) {<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; String name = feature.attributes.get(LABEL_ATTR);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; context.write(new Text(name), data);<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; found = true;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; break;<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; }<br>&nbsp;&nbsp;&nbsp; }<br>}
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 682px; left: 158px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 36px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Demo
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(6458.03px, 2614.61px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-13" class="step future" data-x="6458.026666666667" data-y="2614.6133333333332" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 64px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+ST_Geometry in Hive<br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(5345.28px, 2000.21px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-14" class="step future" data-x="5345.28" data-y="2000.2133333333334" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 58px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Geoprocessing Tools for Hadoop<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 314px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 29px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<b>Features To JSON</b>,&nbsp; <b>JSON To Features</b><br>&nbsp;- Provide serialization to and from JSON formats<br><br><b>Copy To HDFS</b>,&nbsp; <b>Copy From HDFS</b><br>&nbsp;- Moves files between ArcGIS and Hadoop<br><br><b>Execute Workflow</b><br>&nbsp;- Starts a workflow using the Hadoop Oozie workflow engine<br><br><i>Demo</i><br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 154px; left: 741px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/hadooptoolbox.png">
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(5338.45px, 1078.61px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-15" class="step future" data-x="5338.453333333333" data-y="1078.6133333333332" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 64px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Download the GIS Tools Project<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 150px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 45px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Clone or Fork the project from Github<br><a href="http://github.com/Esri/gis-tools-for-hadoop">http://github.com/Esri/gis-tools-for-hadoop</a><br><br>Pre-built samples in the 'samples' directory<br><br>Place your completed tools in the 'tools'<br>directory if you want to share them<br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(5338.45px, 163.84px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-16" class="step future" data-x="5338.453333333333" data-y="163.84" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 64px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Get the Source Code<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 150px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 36px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Geometry API<br>&nbsp; &nbsp; <a href="https://github.com/Esri/geometry-api-java">http://github.com/Esri/geometry-api-java</a><br><br>Spatial Framework for Hadoop<br><a href="http://github.com/Esri/spatial-framework-for-hadoop">&nbsp;&nbsp;&nbsp; http://github.com/Esri/spatial-framework-for-hadoop</a><br><br>Geoprocessing Tools for Hadoop<br><a href="http://github.com/Esri/geoprocessing-tools-for-hadoop">&nbsp;&nbsp;&nbsp; http://github.com/Esri/geoprocessing-tools-for-hadoop</a><br><br>To build the source:<br>&nbsp;&nbsp;&nbsp; <font color="fa0000">ant</font><br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(4136.96px, 150.187px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-17" class="step future" data-x="4136.96" data-y="150.18666666666667" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 64px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Contributing Your Work<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 150px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 39px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+Fork the <b>gis-tools-for-hadoop</b> project<br>- Hack on the code<br>&nbsp; -&gt; Make new tools<br>&nbsp;&nbsp;&nbsp; -&gt; Do <font color="dd00fa">awesome</font> spatial analysis on big data<br>- Send a Github 'pull request' so we can<br>&nbsp;&nbsp; pull the tool back into our project<br><br>Let us know how you are doing<br>- Add your content to the Wikis on Github<br>- Troubles?&nbsp; Open new Issues in Github<br>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(2853.55px, 150.187px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1); transform-style: preserve-3d;" id="step-18" class="step future" data-x="2853.5466666666666" data-y="150.18666666666667" data-scale="1">
+<div style="width: 1024px; height: 768px">
+
+<div class="componentContainer" style="top: 50px; left: 70px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 79px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+We want your feedback!<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 190px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 48px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+<b>Session Feedback</b><br><a href="http://esriurl.com/survey">http://esriurl.com/survey</a><br>Session Offering ID: <font color="da00f7">301</font><br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 537px; left: 80px;
+-webkit-transform: scale(1, 1);
+-moz-transform: scale(1, 1);
+transform: scale(1, 1)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<div style="font-family: 'Lato', sans-serif; font-size: 36px;
+			font-weight: ; font-style: ; color: #333;
+			text-decoration: ; text-align: ">
+E-mail:<br>&nbsp;&nbsp;&nbsp; David Kaiser&nbsp; &lt;<a href="http://esri.com/">dkaiser@esri.com</a>&gt;&nbsp; <b>@ddkaiser</b><br>&nbsp;&nbsp;&nbsp; Michael Park&nbsp; &lt;<a href="http://esri.com/">mpark@esri.com</a>&gt;<br>
+</div>
+</div>
+</div>
+
+<div class="componentContainer" style="top: 269px; left: 696px;
+-webkit-transform: scale(0.5, 0.5);
+-moz-transform: scale(0.5, 0.5);
+transform: scale(0.5, 0.5)">
+<div class="transformContainer" style="-webkit-transform:   ; -moz-transform:   ; transform:   ">
+<img src="GIS%20Tools%20for%20Hadoop%20DevSummit%202013_files/devsummit2013qrcodeka.png">
+</div>
+</div>
+
+</div>
+
+</div>
+
+
+<div style="position: absolute; transform: translate(-50%, -50%) translate3d(3345.07px, 1986.56px, 0px) rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(9); transform-style: preserve-3d;" id="overview" class="step active future" data-x="3345.0666666666666" data-y="1986.56" data-scale="9"></div>
+</div></div>
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+<script>
+if ("ontouchstart" in document.documentElement) { 
+    document.querySelector(".hint").innerHTML = "<p>Tap on the left or right to navigate</p>";
+}
+</script>
+
+
+</div>
+<script>
+if (!window.impressStarted) {
+    startImpress(document, window);
+    impress().init();   
+}
+</script>
+</body></html>
