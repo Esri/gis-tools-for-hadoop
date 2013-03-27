@@ -10,11 +10,13 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-import com.esri.core.geometry.Geometry;
+import com.esri.core.geometry.Envelope;
+import com.esri.core.geometry.Envelope2D;
 import com.esri.core.geometry.GeometryEngine;
 import com.esri.core.geometry.Point;
+import com.esri.core.geometry.QuadTree;
+import com.esri.core.geometry.QuadTree.QuadTreeIterator;
 import com.esri.core.geometry.SpatialReference;
-import com.esri.json.EsriFeature;
 import com.esri.json.EsriFeatureClass;
 
 
@@ -30,6 +32,50 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 	
 	EsriFeatureClass featureClass;
 	SpatialReference spatialReference;
+	QuadTree quadTree;
+	QuadTreeIterator quadTreeIter;
+	
+	private void buildQuadTree(){
+		quadTree = new QuadTree(new Envelope2D(-180, -90, 180, 90), 8);
+		
+		Envelope envelope = new Envelope();
+		for (int i=0;i<featureClass.features.length;i++){
+			featureClass.features[i].geometry.queryEnvelope(envelope);
+			quadTree.insert(i, new Envelope2D(envelope.getXMin(), envelope.getYMin(), envelope.getXMax(), envelope.getYMax()));
+		}
+		
+		quadTreeIter = quadTree.getIterator();
+	}
+	
+	/**
+	 * Query the quadtree for the feature containing the given point
+	 * 
+	 * @param pt point as longitude, latitude
+	 * @return index to feature in featureClass or -1 if not found
+	 */
+	private int queryQuadTree(Point pt)
+	{
+		// reset iterator to the quadrant envelope that contains the point passed
+		quadTreeIter.resetIterator(pt, 0);
+		
+		int elmHandle = quadTreeIter.next();
+		
+		while (elmHandle >= 0){
+			int featureIndex = quadTree.getElement(elmHandle);
+			
+			// we know the point and this feature are in the same quadrant, but we need to make sure the feature
+			// actually contains the point
+			if (GeometryEngine.contains(featureClass.features[featureIndex].geometry, pt, spatialReference)){
+				return featureIndex;
+			}
+			
+			elmHandle = quadTreeIter.next();
+		}
+		
+		// feature not found
+		return -1;
+	}
+	
 	
 	/**
 	 * Sets up mapper with filter geometry provided as argument[0] to the jar
@@ -47,12 +93,9 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 		latitudeIndex = config.getInt("samples.csvdata.columns.lat", 1);
 		longitudeIndex = config.getInt("samples.csvdata.columns.long", 2);
 		
-		
-		
 		FSDataInputStream iStream = null;
 		
 		spatialReference = SpatialReference.create(4326);
-		
 		
 		try {
 			// load the JSON file provided as argument 0
@@ -63,7 +106,6 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 		catch (Exception e)
 		{
 			e.printStackTrace();
-			throw();
 		} 
 		finally
 		{
@@ -73,6 +115,11 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 					iStream.close();
 				} catch (IOException e) { }
 			}
+		}
+		
+		// build a quadtree of our features for fast queries
+		if (featureClass != null){
+			buildQuadTree();
 		}
 	}
 	
@@ -97,33 +144,23 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 		float latitude = Float.parseFloat(values[latitudeIndex]);
 		float longitude = Float.parseFloat(values[longitudeIndex]);
 		
-		// Create our Geometry directly from longitude and latitude
-		Geometry point = new Point(longitude, latitude);
+		// Create our Point directly from longitude and latitude
+		Point point = new Point(longitude, latitude);
 		
-		boolean found = false;
-
 		// Each map only processes one earthquake record at a time, so we start out with our count 
 		// as 1.  Aggregation will occur in the combine/reduce stages
 		IntWritable one = new IntWritable(1);
 		
+		int featureIndex = queryQuadTree(point);
 		
-		// Loop through every feature in our feature class
-		for (EsriFeature feature : featureClass.features)
-		{
-			if (GeometryEngine.contains(feature.geometry, point, spatialReference))
-			{
-				String name = (String)feature.attributes.get(labelAttribute);
-				if (name == null) name = "???";
-				
-				context.write(new Text(name), one);
-				
-				found = true;
-				break;
-			}
-		}
-		
-		if (!found)
-		{
+		if (featureIndex >= 0){
+			String name = (String)featureClass.features[featureIndex].attributes.get(labelAttribute);
+			
+			if (name == null) 
+				name = "???";
+			
+			context.write(new Text(name), one);
+		} else {
 			context.write(new Text("*Outside Feature Set"), one);
 		}
 	}
