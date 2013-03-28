@@ -12,9 +12,8 @@ hive -S
 Add the required external libraries and create temporary functions for the geometry api calls.
 ```bash
 add jar
-  ${env:HOME}/esri-git/hadoop-tools/sample-workflows/lib/esri-geometry-api.jar
-  ${env:HOME}/esri-git/hadoop-tools/sample-workflows/lib/hadoop-utilities.jar
-  ${env:HOME}/esri-git/hadoop-tools/sample-workflows/lib/esri-hive-spatial.jar;
+  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/esri-geometry-api.jar
+  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/spatial-sdk-hadoop.jar
   
 create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
 create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';
@@ -27,7 +26,7 @@ Define a schema for the [earthquake data](https://github.com/Esri/hadoop-tools/t
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS earthquakes (earthquake_date STRING, latitude DOUBLE, longitude DOUBLE, magnitude DOUBLE)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
-LOCATION '${env:HOME}/esri-git/hadoop-tools/sample-workflows/data/earthquake-data';
+LOCATION '${env:HOME}/esri-git/gis-tools-for-hadoop/samples/data/earthquake-data';
 ```
 
 Define a schema for the [California counties data](https://github.com/Esri/hadoop-tools/tree/master/sample-workflows/data/counties-data).  The counties data is stored as [Enclosed JSON](https://github.com/Esri/hadoop-tools/wiki/JSON-Formats).  
@@ -35,9 +34,9 @@ Define a schema for the [California counties data](https://github.com/Esri/hadoo
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS counties (Area string, Perimeter string, State string, County string, Name string, BoundaryShape binary)                                         
 ROW FORMAT SERDE 'com.esri.hadoop.hive.serde.JsonSerde'              
-STORED AS INPUTFORMAT 'com.esri.hadoop.hive.serde.EnclosedJsonInputFormat'
+STORED AS INPUTFORMAT 'com.esri.json.hadoop.serde.EnclosedJsonInputFormat'
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
-LOCATION '${env:HOME}/esri-git/hadoop-tools/sample-workflows/data/counties-data'; 
+LOCATION '${env:HOME}/esri-git/gis-tools-for-hadoop/samples/data/counties-data'; 
 ```
 
 Now run a select statement to aggregate earthquake counts accross the California counties.
@@ -80,7 +79,7 @@ Alternatively, you can run the entire sample using `run-sample.sql`.
 First move to the Hive sample directory and run Hive.
 
 ```bash
-cd ~/esri-git/hadoop-tools/sample-workflows/HiveAggregationSample
+cd ~/esri-git/gis-tools-for-hadoop/samples/point-in-polygon-aggregation-hive/cmd
 hive -S
 ```
 
