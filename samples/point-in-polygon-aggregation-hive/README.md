@@ -34,7 +34,7 @@ Define a schema for the [California counties data](https://github.com/Esri/hadoo
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS counties (Area string, Perimeter string, State string, County string, Name string, BoundaryShape binary)                                         
 ROW FORMAT SERDE 'com.esri.hadoop.hive.serde.JsonSerde'              
-STORED AS INPUTFORMAT 'com.esri.json.hadoop.serde.EnclosedJsonInputFormat'
+STORED AS INPUTFORMAT 'com.esri.json.hadoop.EnclosedJsonInputFormat'
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION '${env:HOME}/esri-git/gis-tools-for-hadoop/samples/data/counties-data'; 
 ```
