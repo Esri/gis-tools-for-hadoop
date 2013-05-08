@@ -144,8 +144,7 @@ a.button small {
 }
 header a.button {
   position: relative;
-  right: 0;
-  top: 0;
+
   background: transparent url(../images/github-button.png) 0 0 no-repeat;
 }
 aside a.button {
