@@ -211,6 +211,7 @@ th {
 td {
   border: 0px;
   text-align: center; 
+  vertical-align:bottom;
   font-weight: 300;
 }
 
