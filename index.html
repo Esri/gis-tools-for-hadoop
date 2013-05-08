@@ -66,14 +66,33 @@ Hadoop Framework, to do spatial analysis on spatial data; for example:</p>
 <li>Define new areas represented as polygons, and run Point in Polygon analysis on billions of spatial data records inside Hadoop.</li>
 <li>Visualize analysis results on a map with rich styling capabilities, and a rich set of base maps.</li>
 <li>Integrate your maps in reports, or publish them as map applications online.</li>
-</ol><p><strong><b>Getting started</b></strong></p>
+</ol>
+
+<p><strong><b>Getting started</b></strong></p>
 
 <p>Developers can get started at <a href="https://github.com/Esri/spatial-framework-for-hadoop">Spatial Framework
 for Hadoop</a>.</p>
 
 <p>ArcGIS users can get started at <a href="https://github.com/Esri/geoprocessing-tools-for-hadoop">Geoprocessing
 Tools for Hadoop</a>.</p>
-        </section>
+       
+ 
+<p><strong><b>How it all works?</b></strong></p>
+         
+         
+Overall there are four Github projects that make up the toolkit. 
+
+Firstly, the Esri Geometry API project. This is a generic library that includes geometry objects, spatial operations, and spatial indexing, it can be used to spatially enable Hadoop. By deploying the Esri geometry API library (as a jar) within Hadoop, developers are able to build Map/Reduce applications that are spatially enabled, by leveraging the Esri Geometry API along with the other Hadoop APIs in their application. 
+
+Secondly, the Spatial Framework for Hadoop project.  This library includes the user defined objects that extend Hive with the capabilities of the Esri Geometry API. By enabling this library in Hive, users are able to construct queries that are very SQL like using HQL. In this case, users don’t have to write a Map/Reduce application, they can interact with Hive, write their SQL like queries and get answers directly from Hadoop. Queries in this case can include spatial operations and values.
+
+
+Thirdly, the Geoprocessing Tools for Hadoop project. These tools are specifically used in ArcGIS. Through the tools, users can connect to Hadoop from ArcGIS. Connecting to Hadoop from ArcGIS is really useful to the toolkit users, since they can import their analysis result in ArcGIS for Visualization. They can also do more complex and sophisticated analysis now that they narrowed down their data to a specific subset. Additionally, users can leverage the ArcGIS platform capabilities to publish their maps to web and mobile apps, and can integrate it with BI reports.
+
+Finally, the GIS Tools for Hadoop project. This project is intended as a place to include multiple samples that leverage the toolkit. The samples can leverage the low level libraries, or the Geoprocessing tools. A couple of samples are available to help you test the deployment of the spatial libraries with Hadoop and Hive, and make sure everything runs with no issues before you start leveraging the setup from your HQL queries, or from the GP tools.  To check your deployment, for Hive and GP tools usage, the sample point-in-polygon-aggregation-hive can be utilized. The sample leverages the data and lib directories on the same path.
+
+         
+       </section>
 
         <aside id="sidebar">
           <!--a href="https://github.com/Esri/gis-tools-for-hadoop/zipball/master" class="button">
