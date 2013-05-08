@@ -19,7 +19,7 @@ using Hadoop
 **Resources for building custom tools**
 * [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-for-hadoop) 
  * Java helper utilities for Hadoop developers
- * Hive spatial user-definied functions 
+ * Hive spatial user-defined functions 
 * [Esri Geometry API Java](https://github.com/Esri/geometry-api-java) - Java geometry library for spatial data 
 processing 
 * [Geoprocessing Tools](https://github.com/Esri/geoprocessing-tools-for-hadoop) - ArcGIS Geoprocessing tools 
