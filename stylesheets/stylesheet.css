@@ -201,7 +201,7 @@ hr {
 
 table {
   width: 100%;
-  border: 0px solid #ebebeb;
+  border: 0px;
 }
 
 th {
@@ -209,7 +209,7 @@ th {
 }
 
 td {
-  border: 1px solid #ebebeb;
+  border: 0px;
   text-align: center; 
   font-weight: 300;
 }
