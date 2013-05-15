@@ -1,7 +1,7 @@
 gis-tools-for-hadoop
 ====================
 
-The __GIS Tools for Hadoop__ are a collection of GIS tools that leverage 
+The [__GIS Tools for Hadoop__](http://esri.github.io/gis-tools-for-hadoop/) are a collection of GIS tools that leverage 
 the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-for-hadoop)
 for spatial analysis of big data.  The tools make use of 
 the [Geoprocessing Tools for Hadoop](https://github.com/Esri/geoprocessing-tools-for-hadoop) toolbox,
