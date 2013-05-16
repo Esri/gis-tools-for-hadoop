@@ -39,7 +39,7 @@ SAMPLE_DIR=/user/name/samples/point-in-polygon
 > directly from the command line (and not using Oozie)
 >  1. Path to Esri JSON file (counties.json)  
 >  2. Path to Input file (earthquakes.csv)  
->  3. Ouput Path  
+>  3. Output Path
 
 > The **run-sample** scripts are pretty straight forward and can be opened to see how they work.
 
