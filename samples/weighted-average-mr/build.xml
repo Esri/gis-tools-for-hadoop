@@ -1,0 +1,32 @@
+<project name="esri-spatial-all" default="all" xmlns:artifact="antlib:org.apache.maven.artifact.ant">
+
+	<property name="dir.build" value="build" />
+	<property name="jar.name" value="weighted-average-mr.jar" />
+	
+	<artifact:dependencies pathId="dependencies.class.path">
+		<dependency groupId="org.apache.hadoop" artifactId="hadoop-core" version="0.20.2"/>
+		<dependency groupId="org.codehaus.jackson" artifactId="jackson-core-asl" version="1.9.12"/>
+		<dependency groupID="com.esri.geometry" artifactId="esri-geometry-api" version="1.0" />
+	</artifact:dependencies>
+
+	<target name="init">
+		<mkdir dir="${dir.build}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<javac srcdir="src" destdir="${dir.build}">
+			<classpath refid="dependencies.class.path"/>	
+		</javac>
+	</target>
+
+	<target name="jar" depends="compile">
+		<jar jarfile="${jar.name}" basedir="${dir.build}"/>
+	</target>
+
+	<target name="clean">
+		<delete dir="${dir.build}" />
+		<delete file="${jar.name}" />
+	</target>
+	
+	<target name="all" depends="jar"/>
+</project>
