@@ -8,7 +8,7 @@ the [Geoprocessing Tools for Hadoop](https://github.com/Esri/geoprocessing-tools
 to provide access to the Hadoop system from the ArcGIS Geoprocessing environment. 
 
 This fork of [_GIS Tools for Hadoop_](https://github.com/Esri/gis-tools-for-hadoop)
-introduces an additional sample: [Trip Discovery on vehicle GPS data](../../tree/master/samples/trip-discovery).
+introduces an additional sample: [Trip Discovery on vehicle GPS data](https://github.com/randallwhitman/gis-tools-for-hadoop/tree/master/samples/trip-discovery).
 
 
 ## Features
