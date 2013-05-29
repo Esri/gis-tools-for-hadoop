@@ -7,6 +7,10 @@ for spatial analysis of big data.  The tools make use of
 the [Geoprocessing Tools for Hadoop](https://github.com/Esri/geoprocessing-tools-for-hadoop) toolbox,
 to provide access to the Hadoop system from the ArcGIS Geoprocessing environment. 
 
+This fork of [_GIS Tools for Hadoop_](https://github.com/Esri/gis-tools-for-hadoop)
+introduces an additional sample: [Trip Discovery on vehicle GPS data](tree/master/samples/trip-discovery/).
+
+
 ## Features
 
 * Sample tools that demonstrate full stack implementations of all the resources provided to solve GIS problems 
