@@ -41,7 +41,7 @@ public class TripCorrDrv {
 		job.setJobName("Automobile Trip Origin & Destination by Grid Cell");
 		job.setOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(TripCorrWrit.class);
-		job.setOutputValueClass(DoubleWritable.class);
+		job.setOutputValueClass(Text.class);
 
 		job.setMapperClass(TripCorrMap.class);
 		job.setReducerClass(TripCorrRed.class);
