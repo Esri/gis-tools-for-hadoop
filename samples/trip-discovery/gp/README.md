@@ -12,7 +12,7 @@
 
 > If you have red X's on the GP Tools from the Hadoop Tools toolbox, you will need to double click rectangle in the model and reset the location of the tool.
 
-#### Setting up the data in Hadoop
+#### Staging the data in Hadoop
 
 The only data file you need to put on HDFS is `samples/trip-discovery/sample-vehicle-positions.csv`.  The other files are required for the oozie worfklow to run correctly.
 
