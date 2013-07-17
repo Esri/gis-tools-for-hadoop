@@ -42,6 +42,7 @@ nameNode=hdfs://localhost:8020
 jobTracker=localhost:8021
 baseDir=${nameNode}/user/name/gp-sample
 inputDir=${baseDir}/data
+interDir=${baseDir}/inter
 outputDir=${baseDir}/output
 studyArea=${baseDir}/polygons.json
 threshold=15
