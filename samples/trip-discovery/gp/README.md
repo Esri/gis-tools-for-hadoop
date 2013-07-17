@@ -41,11 +41,12 @@ Once you have the files set up in HDFS, you will need to update your `job.proper
 nameNode=hdfs://localhost:8020
 jobTracker=localhost:8021
 baseDir=${nameNode}/user/name/gp-sample
-inputDir=${baseDir}/data/earthquakes.csv
+inputDir=${baseDir}/data
 outputDir=${baseDir}/output
 studyArea=${baseDir}/polygons.json
 threshold=15
 cellSize=1000
+minCommon=1
 oozie.wf.application.path=${baseDir}/job
 oozie.libpath=${oozie.wf.application.path}
 queueName=default
