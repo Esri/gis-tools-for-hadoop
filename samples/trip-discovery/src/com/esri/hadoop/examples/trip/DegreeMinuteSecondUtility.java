@@ -1,6 +1,6 @@
 package com.esri.hadoop.examples.trip;
 
-public class DmsUtil {
+public class DegreeMinuteSecondUtility {
 
 	public static double parseDms(String inVal) {  // DMS string to decimal degrees
 		try {
