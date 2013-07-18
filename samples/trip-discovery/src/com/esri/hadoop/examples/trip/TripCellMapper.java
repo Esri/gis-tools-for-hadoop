@@ -5,7 +5,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class TripCellMap extends Mapper<LongWritable, Text, Text, CarSortWritable> {
+public class TripCellMapper extends Mapper<LongWritable, Text, Text, CarSortWritable> {
 
 	// column indices for values in the vehicle CSV
 	static final int COL_CAR = 0;  // vehicle ID
