@@ -43,7 +43,7 @@ public class TripInCommonDriver {
 		job.setMapOutputValueClass(TripInCommonWritable.class);
 		job.setOutputValueClass(DoubleWritable.class);
 
-		job.setMapperClass(TripInCommonMappper.class);
+		job.setMapperClass(TripInCommonMapper.class);
 		job.setReducerClass(TripInCommonReducer.class);
 
 		job.setInputFormatClass(TextInputFormat.class);

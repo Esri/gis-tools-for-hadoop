@@ -5,7 +5,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class TripInCommonMappper extends Mapper<LongWritable, Text, Text, TripInCommonWritable> {
+public class TripInCommonMapper extends Mapper<LongWritable, Text, Text, TripInCommonWritable> {
 
 	// column indices for values in the intermediate origin-destination TSV
 	static final int COL_CAR  = 0;   // car ID
