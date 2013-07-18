@@ -41,7 +41,7 @@ public class TripInCommonDriver {
 		job.setJobName("Automobile Trip Origin & Destination by Grid Cell");
 		job.setOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(TripInCommonWritable.class);
-		job.setOutputValueClass(DoubleWritable.class);
+		job.setOutputValueClass(Text.class);
 
 		job.setMapperClass(TripInCommonMapper.class);
 		job.setReducerClass(TripInCommonReducer.class);
