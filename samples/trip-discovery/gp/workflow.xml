@@ -18,11 +18,11 @@
                 </property>
                 <property>
                     <name>mapreduce.map.class</name>
-                    <value>com.esri.hadoop.examples.trip.TripCellMap</value>
+                    <value>com.esri.hadoop.examples.trip.TripCellMapper</value>
                 </property>
                 <property>
                     <name>mapreduce.reduce.class</name>
-                    <value>com.esri.hadoop.examples.trip.TripCellRed</value>
+                    <value>com.esri.hadoop.examples.trip.TripCellReducer</value>
                 </property>
                 <property>
                     <name>mapred.mapoutput.value.class</name>
@@ -34,7 +34,7 @@
                 </property>
                 <property>
                     <name>mapred.output.value.class</name>
-                    <value>com.esri.hadoop.examples.trip.TripCellWrit</value>
+                    <value>com.esri.hadoop.examples.trip.TripCellWritable</value>
                 </property>
                 <property>
                     <name>com.esri.trip.input</name>
@@ -58,10 +58,10 @@
                 </property>
             </configuration>
         </map-reduce>
-        <ok to="trip-corr"/>
+        <ok to="trip-in-common"/>
         <error to="fail"/>
     </action>
-    <action name="trip-corr">
+    <action name="trip-in-common">
         <map-reduce>
             <job-tracker>${jobTracker}</job-tracker>
             <name-node>${nameNode}</name-node>
@@ -79,15 +79,15 @@
                 </property>
                 <property>
                     <name>mapreduce.map.class</name>
-                    <value>com.esri.hadoop.examples.trip.TripCorrMap</value>
+                    <value>com.esri.hadoop.examples.trip.TripInCommonMapper</value>
                 </property>
                 <property>
                     <name>mapreduce.reduce.class</name>
-                    <value>com.esri.hadoop.examples.trip.TripCorrRed</value>
+                    <value>com.esri.hadoop.examples.trip.TripInCommonReducer</value>
                 </property>
                 <property>
                     <name>mapred.mapoutput.value.class</name>
-                    <value>com.esri.hadoop.examples.trip.TripCorrWrit</value>
+                    <value>com.esri.hadoop.examples.trip.TripInCommonWritable</value>
                 </property>
                 <property>
                     <name>mapred.output.key.class</name>
