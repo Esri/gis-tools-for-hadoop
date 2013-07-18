@@ -4,10 +4,10 @@ import org.apache.hadoop.io.ArrayWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
-public class TripCorrWrit extends ArrayWritable {
-	public TripCorrWrit() { super(Text.class); }
+public class TripInCommonWritable extends ArrayWritable {
+	public TripInCommonWritable() { super(Text.class); }
 	
-    public TripCorrWrit(String lhs, String bot, String rhs, String top) { //String lon, String lat,
+    public TripInCommonWritable(String lhs, String bot, String rhs, String top) { //String lon, String lat,
 	    super(Text.class, new Writable[] {
 				new Text(lhs),
 				new Text(bot),

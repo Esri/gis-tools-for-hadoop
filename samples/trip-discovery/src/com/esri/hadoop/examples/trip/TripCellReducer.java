@@ -21,8 +21,8 @@ import com.esri.json.EsriFeatureClass;
 // Note: we do not consider overnight trips.
 //  Could be done with carID only as the key, and
 //  CarDateTime-Writable with compareTo on car-date-time (larger sort)
-public class TripCellRed extends
-		Reducer<Text, CarSortWritable, Text, TripCellWrit> {
+public class TripCellReducer extends
+		Reducer<Text, CarSortWritable, Text, TripCellWritable> {
 
 	double lonMin, lonMax, arcLon, latMin, latMax, latExtent;
 	int xCount, yCount;
@@ -203,18 +203,18 @@ public class TripCellRed extends
 				if (nPrvTm > nOrgTm   //ignore lone points
 					&& nCurTm > nPrvTm + threshold) {
 
-					int idxOrig = queryGrid(DmsUtil.parseDms(origLon),
-											 DmsUtil.parseDms(origLat));
-					int idxDest = queryGrid(DmsUtil.parseDms(prevLon),
-											 DmsUtil.parseDms(prevLat));
+					int idxOrig = queryGrid(DegreeMinuteSecondUtility.parseDms(origLon),
+											DegreeMinuteSecondUtility.parseDms(origLat));
+					int idxDest = queryGrid(DegreeMinuteSecondUtility.parseDms(prevLon),
+											DegreeMinuteSecondUtility.parseDms(prevLat));
 					if (idxOrig >= 0 && idxDest > 0) {  // discard outliers
 						double[] cellOrig = grid.get(idxOrig);
 						double[] cellDest = grid.get(idxDest);
 						ctx.write(outKy,
-								  new TripCellWrit(theDate, origTime, origLon, origLat, origSpd,
-												   cellOrig[0], cellOrig[1], cellOrig[2], cellOrig[3],
-												   theDate, prevTime, prevLon, prevLat, prevSpd,
-												   cellDest[0], cellDest[1], cellDest[2], cellDest[3])
+								  new TripCellWritable(theDate, origTime, origLon, origLat, origSpd,
+													   cellOrig[0], cellOrig[1], cellOrig[2], cellOrig[3],
+													   theDate, prevTime, prevLon, prevLat, prevSpd,
+													   cellDest[0], cellDest[1], cellDest[2], cellDest[3])
 								  );
 					}
 					nOrgTm   = nCurTm;
@@ -230,18 +230,18 @@ public class TripCellRed extends
 				prevSpd  = curSpd;
 			}
 			if (/*records.size() > 1 && */ nPrvTm > nOrgTm) {  // no lone point
-				int idxOrig = queryGrid(DmsUtil.parseDms(origLon),
-										DmsUtil.parseDms(origLat));
-				int idxDest = queryGrid(DmsUtil.parseDms(prevLon),
-										DmsUtil.parseDms(prevLat));
+				int idxOrig = queryGrid(DegreeMinuteSecondUtility.parseDms(origLon),
+										DegreeMinuteSecondUtility.parseDms(origLat));
+				int idxDest = queryGrid(DegreeMinuteSecondUtility.parseDms(prevLon),
+										DegreeMinuteSecondUtility.parseDms(prevLat));
 				if (idxOrig >= 0 && idxDest > 0) {  // discard outliers
 					double[] cellOrig = grid.get(idxOrig);
 					double[] cellDest = grid.get(idxDest);
 					ctx.write(outKy,
-							  new TripCellWrit(theDate, origTime, origLon, origLat, origSpd,
-											   cellOrig[0], cellOrig[1], cellOrig[2], cellOrig[3],
-											   theDate, prevTime, prevLon, prevLat, prevSpd,
-											   cellDest[0], cellDest[1], cellDest[2], cellDest[3])); // current, after loop exit
+							  new TripCellWritable(theDate, origTime, origLon, origLat, origSpd,
+												   cellOrig[0], cellOrig[1], cellOrig[2], cellOrig[3],
+												   theDate, prevTime, prevLon, prevLat, prevSpd,
+												   cellDest[0], cellDest[1], cellDest[2], cellDest[3])); // current, after loop exit
 				}
 			}
 		} catch (Exception e) {
