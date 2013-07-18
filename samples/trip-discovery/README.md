@@ -42,6 +42,6 @@ The build system used for this sample is [Apache Ant](http://ant.apache.org/) wi
 Make sure `hadoop` is in the path set in your environment.
 Then please adapt the following recipes to your data.
 
-`env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar:../lib/spatial-sdk-hadoop.jar  hadoop  jar trip-discovery.jar com.esri.hadoop.examples.trip.TripCellDrv  -libjars ../lib/esri-geometry-api.jar,../lib/spatial-sdk-hadoop.jar 15 500 sample-study-area.json sample-vehicle-positions.csv out-trip-1`
+`env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar:../lib/spatial-sdk-hadoop.jar  hadoop  jar trip-discovery.jar com.esri.hadoop.examples.trip.TripCellDriver  -libjars ../lib/esri-geometry-api.jar,../lib/spatial-sdk-hadoop.jar 15 500 sample-study-area.json sample-vehicle-positions.csv out-trip-1`
 
-`env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar hadoop jar trip-discovery.jar com.esri.hadoop.examples.trip.TripCorrDrv -libjars ../lib/esri-geometry-api.jar 2 'out-trip-1/part-r-*' out-trip-2`
+`env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar hadoop jar trip-discovery.jar com.esri.hadoop.examples.trip.TripInCommonDriver -libjars ../lib/esri-geometry-api.jar 2 'out-trip-1/part-r-*' out-trip-2`
