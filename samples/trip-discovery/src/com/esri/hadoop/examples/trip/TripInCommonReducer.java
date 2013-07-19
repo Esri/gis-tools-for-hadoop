@@ -7,11 +7,11 @@ import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Reducer;
 
-public class TripCorrRed extends Reducer<Text, TripCorrWrit, Text, Text> {
+public class TripInCommonReducer extends Reducer<Text, TripInCommonWritable, Text, Text> {
 
 	// Start with the destination cells for one origin cell
 	// Output the percentage for the most common destination cell (and maybe some attributes)
-	public void reduce(Text key, Iterable<TripCorrWrit> values, Context ctx)
+	public void reduce(Text key, Iterable<TripInCommonWritable> values, Context ctx)
 		throws IOException, InterruptedException {
 
 		final int INIT_SIZE = 8000;	 // how densely clumped in downtown Tokyo?
@@ -19,7 +19,7 @@ public class TripCorrRed extends Reducer<Text, TripCorrWrit, Text, Text> {
 
 		String sval, maxDest = null;
 		long totCount = 0, maxCount = 0;
-		for (TripCorrWrit entry : values) {
+	    for (TripInCommonWritable entry : values) {
 			sval = entry.toString();  // bounds of destination cell - value of iterator, key of hashmap
 			long newCount = records.containsKey(sval) ? 1 + records.get(sval) : 1;
 			records.put(sval, newCount);

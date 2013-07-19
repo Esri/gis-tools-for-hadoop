@@ -9,7 +9,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-public class TripCorrDrv {
+public class TripInCommonDriver {
 
 	/**
 	 * @param args
@@ -40,11 +40,11 @@ public class TripCorrDrv {
 		Job job = new Job(config);
 		job.setJobName("Automobile Trip Origin & Destination by Grid Cell");
 		job.setOutputKeyClass(Text.class);
-		job.setMapOutputValueClass(TripCorrWrit.class);
+		job.setMapOutputValueClass(TripInCommonWritable.class);
 		job.setOutputValueClass(Text.class);
 
-		job.setMapperClass(TripCorrMap.class);
-		job.setReducerClass(TripCorrRed.class);
+		job.setMapperClass(TripInCommonMapper.class);
+		job.setReducerClass(TripInCommonReducer.class);
 
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
@@ -52,7 +52,7 @@ public class TripCorrDrv {
 		TextInputFormat.setInputPaths(job, new Path(args[1]));
 		TextOutputFormat.setOutputPath(job, new Path(args[2]));
 
-		job.setJarByClass(TripCellDrv.class);
+		job.setJarByClass(TripCellDriver.class);
 
 		System.exit( job.waitForCompletion(true) ? 0 : 1 );
 	}

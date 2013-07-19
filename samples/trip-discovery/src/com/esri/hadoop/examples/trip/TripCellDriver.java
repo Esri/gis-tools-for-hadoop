@@ -8,7 +8,7 @@ import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.GenericOptionsParser;
 
-public class TripCellDrv {
+public class TripCellDriver {
 
 	/**
 	 * Infer trips, with origin & destination cells
@@ -43,10 +43,10 @@ public class TripCellDrv {
 		job.setJobName("Automobile Trip Origin & Destination by Grid Cell");
 		job.setOutputKeyClass(Text.class);
 		job.setMapOutputValueClass(CarSortWritable.class);
-		job.setOutputValueClass(TripCellWrit.class);
+		job.setOutputValueClass(TripCellWritable.class);
 
-		job.setMapperClass(TripCellMap.class);
-		job.setReducerClass(TripCellRed.class);
+		job.setMapperClass(TripCellMapper.class);
+		job.setReducerClass(TripCellReducer.class);
 
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
@@ -54,7 +54,7 @@ public class TripCellDrv {
 		TextInputFormat.setInputPaths(job, new Path(args[3]));
 		TextOutputFormat.setOutputPath(job, new Path(args[4]));
 
-		job.setJarByClass(TripCellDrv.class);
+		job.setJarByClass(TripCellDriver.class);
 
 		System.exit( job.waitForCompletion(true) ? 0 : 1 );
 	}

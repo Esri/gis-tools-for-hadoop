@@ -8,7 +8,7 @@ import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
-public class TripCellWrit implements Writable {
+public class TripCellWritable implements Writable {
 
 	private Text startDate;
 	private Text startTime;
@@ -29,10 +29,10 @@ public class TripCellWrit implements Writable {
 	private DoubleWritable endRhs;
 	private DoubleWritable endTop;
 
-    public TripCellWrit(String startDate, String startTime, String startLon, String startLat, String startSpeed,
-						double startLhs, double startBot, double startRhs, double startTop,
-						String endDate, String endTime, String endLon, String endLat, String endSpeed,
-						double endLhs, double endBot, double endRhs, double endTop) {
+    public TripCellWritable(String startDate, String startTime, String startLon, String startLat, String startSpeed,
+							double startLhs, double startBot, double startRhs, double startTop,
+							String endDate, String endTime, String endLon, String endLat, String endSpeed,
+							double endLhs, double endBot, double endRhs, double endTop) {
 	    set(new Text(startDate),
 			new Text(startTime),
 			new Text(startLon),

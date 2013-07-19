@@ -5,7 +5,7 @@ import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Mapper;
 
-public class TripCorrMap extends Mapper<LongWritable, Text, Text, TripCorrWrit> {
+public class TripInCommonMapper extends Mapper<LongWritable, Text, Text, TripInCommonWritable> {
 
 	// column indices for values in the intermediate origin-destination TSV
 	static final int COL_CAR  = 0;   // car ID
@@ -43,8 +43,8 @@ public class TripCorrMap extends Mapper<LongWritable, Text, Text, TripCorrWrit> 
 		String[] values = line.split("\t");  // no tab inside quoted string in input
 		Text key2 = new Text(String.format("%s\t%s\t%s\t%s", values[COL_LHS1], values[COL_BOT1],
 										   values[COL_RHS1], values[COL_TOP1]));
-		TripCorrWrit data = new TripCorrWrit(values[COL_LHS2], values[COL_BOT2],
-											 values[COL_RHS2], values[COL_TOP2]);
+		TripInCommonWritable data = new TripInCommonWritable(values[COL_LHS2], values[COL_BOT2],
+															 values[COL_RHS2], values[COL_TOP2]);
 		context.write(key2, data);
 
 	}
