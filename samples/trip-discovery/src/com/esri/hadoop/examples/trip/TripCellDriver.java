@@ -62,7 +62,7 @@ public class TripCellDriver {
 	static void print_usage()
 	{
 		System.out.println("***");
-		System.out.println("Usage: hadoop jar trip-discovery.jar TripCellDrv -libjars [external jar references] tripBreakTime cellSize [/hdfs/path/to]/japan-country.json [/hdfs/path/to]/vehicle-positions.csv [/hdfs/path/to/user]/vehicle-output");
+		System.out.println("Usage: hadoop jar trip-discovery.jar TripCellDriver -libjars [external jar references] tripBreakTime cellSize [/hdfs/path/to]/japan-country.json [/hdfs/path/to]/vehicle-positions.csv [/hdfs/path/to/user]/vehicle-output");
 		System.out.println("***");
 	}
 

@@ -29,7 +29,7 @@ public class TripCellMapper extends Mapper<LongWritable, Text, Text, CarSortWrit
 		// Note: no header row in this CSV
 
 		String line = val.toString();
-		String[] values = line.split(",");  // no comma in quoted string in input
+		String[] values = line.split(",");  // no comma inside quoted string in input
 		Text key2 = new Text(values[COL_CAR] + "," + values[COL_DAT]);
 		CarSortWritable data = new CarSortWritable(values[COL_DAT], values[COL_TIM],
 												   values[COL_LON], values[COL_LAT],
