@@ -115,7 +115,7 @@ public class QuadTreeGrid {
 	 		// make sure the cell actually contains the point
 			double[] cell = gridAsArray.get(flatIndex);
 			Envelope envp = new Envelope(cell[0], cell[1], cell[2], cell[3]);
-			if (envp.contains(pt)) {
+			if (envp.contains(pt)) {  // utilize knowledge that grid is rectangular
 				return flatIndex;
 			}
 		}
