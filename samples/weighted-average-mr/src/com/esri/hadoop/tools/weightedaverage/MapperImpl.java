@@ -98,8 +98,6 @@ public class MapperImpl extends Mapper<LongWritable, Text, Text, WeightedAverage
 		
 		FSDataInputStream iStream = null;
 		
-		spatialReference = SpatialReference.create(4326);
-		
 		try {
 			// load the JSON file provided as argument 0
 			FileSystem hdfs = FileSystem.get(config);
