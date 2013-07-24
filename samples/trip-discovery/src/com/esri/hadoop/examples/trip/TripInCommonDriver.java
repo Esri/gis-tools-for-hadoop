@@ -1,26 +1,26 @@
 package com.esri.hadoop.examples.trip;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.conf.Configured;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.io.DoubleWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.lib.input.TextInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
-import org.apache.hadoop.util.GenericOptionsParser;
-
-public class TripInCommonDriver {
+import org.apache.hadoop.util.Tool;
+import org.apache.hadoop.util.ToolRunner;
 
 	/**
-	 * @param args
+	 * For each grid cell containing trip origins, count the trips to a common destination cell
 	 */
-	public static void main(String[] init_args) throws Exception {
-		Configuration config = new Configuration();
+public class TripInCommonDriver extends Configured implements Tool {
 
-		// This step is important as init_args contains ALL the arguments passed to hadoop on the command
-		// line (such as -libjars [jar files]).  What's left after .getRemainingArgs is just the arguments
-		// intended for the MapReduce job
-		String[] args = new GenericOptionsParser(config, init_args).getRemainingArgs();
+	public static void main(String[] args) throws Exception {
+        System.exit(ToolRunner.run(new TripInCommonDriver(), args));
+    }
+
+	public int run(String[] args) throws Exception {
+        Configuration config = getConf();
 
 		/*
 		 * Command-line parameters
@@ -54,7 +54,7 @@ public class TripInCommonDriver {
 
 		job.setJarByClass(TripCellDriver.class);
 
-		System.exit( job.waitForCompletion(true) ? 0 : 1 );
+		return( job.waitForCompletion(true) ? 0 : 1 );
 	}
 
 	static void print_usage()
