@@ -52,7 +52,7 @@ public class TripInCommonDriver extends Configured implements Tool {
 		TextInputFormat.setInputPaths(job, new Path(args[1]));
 		TextOutputFormat.setOutputPath(job, new Path(args[2]));
 
-		job.setJarByClass(TripCellDriver.class);
+		job.setJarByClass(TripInCommonDriver.class);
 
 		return( job.waitForCompletion(true) ? 0 : 1 );
 	}
