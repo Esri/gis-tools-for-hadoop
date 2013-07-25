@@ -60,7 +60,7 @@ public class TripInCommonDriver extends Configured implements Tool {
 	static void print_usage()
 	{
 		System.out.println("***");
-		System.out.println("Usage: hadoop jar trip-discovery.jar TripCorrDrv -libjars [external jar references] minCount [/hdfs/path/to]/trip-cells.csv [/hdfs/path/to/user]/vehicle-output");
+		System.out.println("Usage: hadoop jar trip-discovery.jar TripInCommonDriver -libjars [external jar references] minCount [/hdfs/path/to]/trip-cells.csv [/hdfs/path/to/user]/vehicle-output");
 		System.out.println("***");
 	}
 

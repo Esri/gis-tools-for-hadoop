@@ -1,0 +1,122 @@
+<workflow-app xmlns="uri:oozie:workflow:0.1" name="trip-discovery">
+    <start to="trip-infer-cells"/>
+    <action name="trip-infer-cells">
+        <map-reduce>
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <prepare>
+                <delete path="${interDir}"/>
+            </prepare>
+            <configuration>
+                <property>
+                  <name>mapred.mapper.new-api</name>
+                  <value>true</value>
+                </property>
+                <property>
+                  <name>mapred.reducer.new-api</name>
+                  <value>true</value>
+                </property>
+                <property>
+                    <name>mapreduce.map.class</name>
+                    <value>com.esri.hadoop.examples.trip.TripCellMapper</value>
+                </property>
+                <property>
+                    <name>mapreduce.reduce.class</name>
+                    <value>com.esri.hadoop.examples.trip.TripCellReducer</value>
+                </property>
+                <property>
+                    <name>mapred.mapoutput.value.class</name>
+                    <value>com.esri.hadoop.examples.trip.CarSortWritable</value>
+                </property>
+                <property>
+                    <name>mapred.output.key.class</name>
+                    <value>org.apache.hadoop.io.Text</value>
+                </property>
+                <property>
+                    <name>mapred.output.value.class</name>
+                    <value>com.esri.hadoop.examples.trip.TripCellWritable</value>
+                </property>
+                <property>
+                    <name>com.esri.trip.input</name>
+                    <value>${studyArea}</value>
+                </property>
+                <property>
+                    <name>com.esri.trip.threshold</name>
+                    <value>${threshold}</value>
+                </property>
+                <property>
+                    <name>com.esri.trip.cellsize</name>
+                    <value>${cellSize}</value>
+                </property>
+                <property>
+                    <name>mapred.input.dir</name>
+                    <value>${inputDir}</value>
+                </property>
+                <property>
+                    <name>mapred.output.dir</name>
+                    <value>${interDir}</value>
+                </property>
+            </configuration>
+        </map-reduce>
+        <ok to="trip-in-common"/>
+        <error to="fail"/>
+    </action>
+    <action name="trip-in-common">
+        <map-reduce>
+            <job-tracker>${jobTracker}</job-tracker>
+            <name-node>${nameNode}</name-node>
+            <prepare>
+                <delete path="${outputDir}"/>
+            </prepare>
+            <configuration>
+                <property>
+                  <name>mapred.mapper.new-api</name>
+                  <value>true</value>
+                </property>
+                <property>
+                  <name>mapred.reducer.new-api</name>
+                  <value>true</value>
+                </property>
+                <property>
+                    <name>mapreduce.map.class</name>
+                    <value>com.esri.hadoop.examples.trip.TripInCommonMapper</value>
+                </property>
+                <property>
+                    <name>mapreduce.reduce.class</name>
+                    <value>com.esri.hadoop.examples.trip.TripInCommonReducer</value>
+                </property>
+                <property>
+                    <name>mapred.mapoutput.value.class</name>
+                    <value>com.esri.hadoop.examples.trip.TripInCommonWritable</value>
+                </property>
+                <property>
+                    <name>mapred.output.key.class</name>
+                    <value>org.apache.hadoop.io.Text</value>
+                </property>
+                <property>
+                    <name>mapred.output.value.class</name>
+                    <value>org.apache.hadoop.io.Text</value>
+                </property>
+                <property>
+                    <name>com.esri.trip.threshold</name>
+                    <value>${minCommon}</value>
+                </property>
+                <property>
+                    <name>mapred.input.dir</name>
+                    <value>${interDir}</value>
+                </property>
+                <property>
+                    <name>mapred.output.dir</name>
+                    <value>${outputDir}</value>
+                </property>
+            </configuration>
+        </map-reduce>
+        <ok to="end"/>
+        <error to="fail"/>
+    </action>
+
+    <kill name="fail">
+        <message>Map/Reduce failed, error message[${wf:errorMessage(wf:lastErrorNode())}]</message>
+    </kill>
+    <end name="end"/>
+</workflow-app>
