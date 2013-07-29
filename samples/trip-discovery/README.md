@@ -8,8 +8,8 @@ using a grid of cells about 500m a side.  For each cell containing one or more t
 it counts trips by grid cell of the destination position, and notes the count of trips to the
 most-common destination cell for that origin cell.
 
-The data used during development, is not redistributable.
-File `sample-vehicle-positions.csv` contains a few records of arbitrary data that is not expected
+The data used in the case study, is not redistributable.
+File `sample-vehicle-positions.csv` contains a few records of synthetic data that is not expected
 to have characteristics of real-life vehicle data, but rather serves to illustrate the CSV format,
 which is:
 
