@@ -1,6 +1,6 @@
 # Aggregation Sample for Hive
 
-First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/Hive/adminmanual-installation.html)
+First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/Hive/adminmanual-installation.html) - this sample requires Hive 0.10.0 or above (or Hive 0.9.0 patched with [HIVE-2736](https://issues.apache.org/jira/browse/HIVE-2736)).
 
 ```bash
 # use '-S' for silent mode
