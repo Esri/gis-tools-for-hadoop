@@ -45,12 +45,16 @@ The build system used for this sample is [Apache Ant](http://ant.apache.org/) wi
 Make sure `hadoop` is in the path set in your environment.
 Then please adapt the following recipes to your data.
 
-`env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar:../lib/spatial-sdk-hadoop.jar  hadoop  jar trip-discovery.jar com.esri.hadoop.examples.trip.TripCellDriver  -libjars ../lib/esri-geometry-api.jar,../lib/spatial-sdk-hadoop.jar 15 500 sample-study-area.json sample-vehicle-positions.csv out-trip-1`
+```bash
+env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar:../lib/spatial-sdk-hadoop.jar  hadoop  jar trip-discovery.jar com.esri.hadoop.examples.trip.TripCellDriver  -libjars ../lib/esri-geometry-api.jar,../lib/spatial-sdk-hadoop.jar 15 500 sample-study-area.json sample-vehicle-positions.csv out-trip-1
 
-`env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar hadoop jar trip-discovery.jar com.esri.hadoop.examples.trip.TripInCommonDriver -libjars ../lib/esri-geometry-api.jar 2 'out-trip-1/part-r-*' out-trip-2`
+env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar hadoop jar trip-discovery.jar com.esri.hadoop.examples.trip.TripInCommonDriver -libjars ../lib/esri-geometry-api.jar 2 'out-trip-1/part-r-*' out-trip-2
+```
 
 ### Geoprocessing tools ###
 
 See `./gp/README.md` for instructions on how to run the sample using the Geoprocessing Tools for Hadoop.
+
+***
 
 ![Map: by origin cell, count of car trips to common destination cell](http://blogs.esri.com/esri/arcgis/files/2013/08/cars-jp20j.jpg)
