@@ -55,4 +55,6 @@ env HADOOP_CLASSPATH=../lib/esri-geometry-api.jar hadoop jar trip-discovery.jar 
 
 See `./gp/README.md` for instructions on how to run the sample using the Geoprocessing Tools for Hadoop.
 
+***
+
 ![Map: by origin cell, count of car trips to common destination cell](http://blogs.esri.com/esri/arcgis/files/2013/08/cars-jp20j.jpg)
