@@ -5,13 +5,9 @@
 	<artifact:dependencies pathId="dependencies.class.path">
 		<dependency groupId="org.apache.hadoop" artifactId="hadoop-core" version="0.20.2"/>
 		<dependency groupId="org.codehaus.jackson" artifactId="jackson-core-asl" version="1.9.12"/>
+		<dependency groupId="com.esri.geometry" artifactId="esri-geometry-api" version="1.1.1"/>
+		<dependency groupId="com.esri.hadoop" artifactId="spatial-sdk-json" version="1.0.1"/> 
 	</artifact:dependencies>
-	
-	<path id="local.class.path">
-		<fileset dir="../lib">
-			<include name="*.jar" />
-		</fileset>
-	</path>
 
 	<target name="init">
 		<mkdir dir="${dir.build}" />
@@ -20,7 +16,6 @@
 	<target name="compile" depends="init">
 		<javac srcdir="src" destdir="${dir.build}">
 			<classpath refid="dependencies.class.path"/>	
-			<classpath refid="local.class.path"/>	
 		</javac>
 	</target>
 
