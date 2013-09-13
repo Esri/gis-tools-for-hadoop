@@ -29,7 +29,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION '${env:HOME}/esri-git/gis-tools-for-hadoop/samples/data/earthquake-data';
 ```
 
-Define a schema for the [California counties data](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/data/earthquake-data).  The counties data is stored as [Enclosed JSON](https://github.com/Esri/spatial-framework-for-hadoop/wiki/JSON-Formats).  
+Define a schema for the [California counties data](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/data/counties-data).  The counties data is stored as [Enclosed JSON](https://github.com/Esri/spatial-framework-for-hadoop/wiki/JSON-Formats).  
 
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS counties (Area string, Perimeter string, State string, County string, Name string, BoundaryShape binary)                                         
