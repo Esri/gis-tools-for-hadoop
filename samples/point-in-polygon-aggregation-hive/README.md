@@ -1,6 +1,6 @@
 # Aggregation Sample for Hive
 
-First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/Hive/adminmanual-installation.html) - this sample requires Hive 0.10.0 or above (or Hive 0.9.0 patched with [HIVE-2736](https://issues.apache.org/jira/browse/HIVE-2736)).
+First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-InstallationandConfiguration) - this sample requires Hive 0.10.0 or above (or Hive 0.9.0 patched with [HIVE-2736](https://issues.apache.org/jira/browse/HIVE-2736)).
 
 ```bash
 # use '-S' for silent mode
@@ -19,9 +19,9 @@ create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
 create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';
 ```
 
-> This is a minimum implementation the ST_Geometry user definied functions found in the [Hive Spatial Library](https://github.com/ArcGIS/hive-spatial).  The full list of functions is available in the linked repository.
+> This is a minimum implementation the ST_Geometry user definied functions found in the [Hive Spatial Library](https://github.com/Esri/spatial-framework-for-hadoop/wiki/Hive-Spatial).  The full list of functions is available in the linked repository.
 
-Define a schema for the [earthquake data](https://github.com/Esri/hadoop-tools/tree/master/sample-workflows/data/earthquake-data).  The earthquake data is in CSV (comma-separated values) format, which is natively supported by Hive.
+Define a schema for the [earthquake data](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/data/earthquake-data).  The earthquake data is in CSV (comma-separated values) format, which is natively supported by Hive.
 
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS earthquakes (earthquake_date STRING, latitude DOUBLE, longitude DOUBLE, magnitude DOUBLE)
@@ -29,7 +29,7 @@ ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION '${env:HOME}/esri-git/gis-tools-for-hadoop/samples/data/earthquake-data';
 ```
 
-Define a schema for the [California counties data](https://github.com/Esri/hadoop-tools/tree/master/sample-workflows/data/counties-data).  The counties data is stored as [Enclosed JSON](https://github.com/Esri/hadoop-tools/wiki/JSON-Formats).  
+Define a schema for the [California counties data](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/data/earthquake-data).  The counties data is stored as [Enclosed JSON](https://github.com/Esri/spatial-framework-for-hadoop/wiki/JSON-Formats).  
 
 ```sql
 CREATE EXTERNAL TABLE IF NOT EXISTS counties (Area string, Perimeter string, State string, County string, Name string, BoundaryShape binary)                                         
