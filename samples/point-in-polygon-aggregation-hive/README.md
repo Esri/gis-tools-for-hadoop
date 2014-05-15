@@ -1,6 +1,6 @@
 # Aggregation Sample for Hive
 
-First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-InstallationandConfiguration) - this sample requires Hive 0.10.0 or above (or Hive 0.9.0 patched with [HIVE-2736](https://issues.apache.org/jira/browse/HIVE-2736)).
+First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-InstallationandConfiguration) - this sample requires Hive 0.10.0 or above (or Hive 0.9.0 patched with [HIVE-2736](https://issues.apache.org/jira/browse/HIVE-2736)).  Note: on Hive 0.11 and Hive 0.12, it may be necessary to copy the JAR files for Spatial-Framework-for-Hadoop and Geometry-API-Java to `$HIVE_HOME/lib`, to [work around a Hive bug](https://github.com/Esri/gis-tools-for-hadoop/issues/9).
 
 ```bash
 # use '-S' for silent mode
@@ -19,7 +19,7 @@ create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
 create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';
 ```
 
-> This is a minimum implementation the ST_Geometry user definied functions found in the [Hive Spatial Library](https://github.com/Esri/spatial-framework-for-hadoop/wiki/Hive-Spatial).  The full list of functions is available in the linked repository.
+> This is a minimum implementation the ST_Geometry user defined functions found in the [Hive Spatial Library](https://github.com/Esri/spatial-framework-for-hadoop/wiki/Hive-Spatial).  The full list of functions is available in the linked repository.
 
 Define a schema for the [earthquake data](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/data/earthquake-data).  The earthquake data is in CSV (comma-separated values) format, which is natively supported by Hive.
 
