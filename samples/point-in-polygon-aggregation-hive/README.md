@@ -1,6 +1,8 @@
 # Aggregation Sample for Hive
 
-First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-InstallationandConfiguration) - this sample requires Hive 0.10.0 or above (or Hive 0.9.0 patched with [HIVE-2736](https://issues.apache.org/jira/browse/HIVE-2736)).  Note: on Hive 0.11 and Hive 0.12, it may be necessary to copy the JAR files for Spatial-Framework-for-Hadoop and Geometry-API-Java to `$HIVE_HOME/lib`, to [work around a Hive bug](https://github.com/Esri/gis-tools-for-hadoop/issues/9).
+First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-InstallationandConfiguration) - this sample requires Hive 0.10.0 or above (or Hive 0.9.0 patched with [HIVE-2736](https://issues.apache.org/jira/browse/HIVE-2736)). 
+
+> **Note**: on Hive 0.11 and Hive 0.12, it may be necessary to copy the JAR files for Spatial-Framework-for-Hadoop and Geometry-API-Java to `$HIVE_HOME/lib`, to [work around a Hive bug](https://github.com/Esri/gis-tools-for-hadoop/issues/9).
 
 ```bash
 # use '-S' for silent mode
