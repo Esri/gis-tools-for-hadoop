@@ -132,10 +132,6 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 		 * The key is the byte offset to the first character in the line.  The value is the text of the line.
 		 */
 		
-		// We know that the first line of the CSV is just headers, so at byte offset 0 we can just return
-		if (key.get() == 0) return;
-		
-		
 		String line = val.toString();
 		String [] values = line.split(",");
 		
