@@ -11,10 +11,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 
 * Sample tools that demonstrate full stack implementations of all the resources provided to solve GIS problems 
 using Hadoop
-* Templates for building custom tools that solve specific problems
 
-
-![GIS Tools Breakdown](http://esri.github.com/gis-tools-for-hadoop/images/gis-tools-breakdown.png)
 
 **Resources for building custom tools**
 * [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-for-hadoop) 
@@ -26,11 +23,91 @@ processing
 for Hadoop
 
 
-## Instructions
+## Getting Started
 
-Start out by navigating to [samples](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples) and 
-following the instructions provided with each sample.  Once you are comfortable with the whole setup, check out 
-the templates and see if they can be tailored to fit your big data GIS needs.
+You will need access to a machine with Hadoop and Hive set up.  Visit [Apache](http://wiki.apache.org/hadoop/GettingStartedWithHadoop), [Hortonworks](http://hortonworks.com/get-started), or [Cloudera](http://www.cloudera.com) for more information on getting started with Hadoop.
+
+1. **Build the samples**
+
+   Use [Apache Maven](http://maven.apache.org) to build the project.
+
+   ```
+   mvn clean package
+   ```
+   
+2. **Load the sample data into HDFS**
+
+   ```
+   ./bin/load-sample-data --hdfs-path gis_samples --with-hive --hive-database gis_samples
+   ```
+
+   You should now be able to see the sample data in HDFS:
+
+   ```bash
+   $ hdfs dfs -ls -R gis_samples
+   drwxr-xr-x   - mike hdfs          0 2014-09-17 14:02 gis_samples/counties
+   -rw-r--r--   3 mike hdfs    1028330 2014-09-17 14:02 gis_samples/counties/california-counties.json
+   drwxr-xr-x   - mike hdfs          0 2014-09-17 14:02 gis_samples/earthquakes
+   -rw-r--r--   3 mike hdfs    5742716 2014-09-17 14:02 gis_samples/earthquakes/earthquakes.csv
+   [...]
+   ```
+
+   and the tables in Hive:
+   
+   ```bash
+   $ hive -S -e "use gis_samples;show tables;"
+   [...]
+   counties
+   earthquakes
+   [...]
+   ````
+   
+3. **Run a sample mapreduce job**
+
+   ```
+   ./bin/run-sample point-in-polygon -csv gis_samples/earthquakes/ -json gis_samples/counties/california-counties.json -out gis_samples/output
+   ```
+   
+   Print the results:
+   
+   ```bash
+   $ hdfs dfs -cat gis_samples/output/*
+   *Outside Feature Set    76817
+   Fresno  11
+   Imperial        28
+   Inyo    20
+   Kern    36
+   Los Angeles     18
+   [...]
+   ```
+   
+4. **Run a sample Hive query**
+
+   Start Hive.  You may need to add the gis-tools assembly to your Hadoop classpath before starting Hive. 
+   
+   ```bash
+   export HADOOP_CLASSPATH=assembly/target/gis-tools-hadoop-assembly-2.0.jar
+   hive -S
+   ```
+   
+   Add the gis-tools assembly to your Hive session and create a few temporary functions used by the query.  A full list of functions can be found [here](https://github.com/Esri/spatial-framework-for-hadoop/blob/master/hive/function-ddl.sql)
+   
+   ```sql
+   add jar assembly/target/gis-tools-hadoop-assembly-2.0.jar;
+   create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
+   create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';
+   use gis_samples;
+   ```
+   
+   Run the query.
+   
+   ```sql
+   SELECT counties.name, count(*) cnt FROM counties
+   JOIN earthquakes
+   WHERE ST_Contains(counties.boundaryshape, ST_Point(earthquakes.longitude, earthquakes.latitude))
+   GROUP BY counties.name
+   ORDER BY cnt desc;
+   ```
 
 ## Requirements
 
