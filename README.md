@@ -62,7 +62,7 @@ You will need access to a machine with Hadoop and Hive set up.  Visit [Apache](h
    [...]
    ````
    
-3. **Run a mapreduce sample**
+3. **Run a sample mapreduce job**
 
    ```
    ./bin/run-sample point-in-polygon -csv gis_samples/earthquakes/ -json gis_samples/counties/california-counties.json -out gis_samples/output
@@ -81,7 +81,33 @@ You will need access to a machine with Hadoop and Hive set up.  Visit [Apache](h
    [...]
    ```
    
+4. **Run a sample Hive query**
 
+   Start Hive.  You may need to add the gis-tools assembly to your Hadoop classpath before starting Hive. 
+   
+   ```bash
+   export HADOOP_CLASSPATH=assembly/target/gis-tools-hadoop-assembly-2.0.jar
+   hive -S
+   ```
+   
+   Add the gis-tools assembly to your Hive session and create a few temporary functions used by the query.  A full list of functions can be found [here](https://github.com/Esri/spatial-framework-for-hadoop/blob/master/hive/function-ddl.sql)
+   
+   ```sql
+   add jar assembly/target/gis-tools-hadoop-assembly-2.0.jar;
+   create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
+   create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';
+   use gis_samples;
+   ```
+   
+   Run the query.
+   
+   ```sql
+   SELECT counties.name, count(*) cnt FROM counties
+   JOIN earthquakes
+   WHERE ST_Contains(counties.boundaryshape, ST_Point(earthquakes.longitude, earthquakes.latitude))
+   GROUP BY counties.name
+   ORDER BY cnt desc;
+   ```
 
 ## Requirements
 
