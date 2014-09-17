@@ -32,7 +32,7 @@ You will need access to a machine with Hadoop and Hive set up.  Visit [Apache](h
    Use [Apache Maven](http://maven.apache.org) to build the project.
 
    ```
-   mvn clean package
+   mvn clean package -DskipTests
    ```
    
 2. **Load the sample data into HDFS**
