@@ -16,14 +16,14 @@ hdfs_path="./"
 # arguments
 while (( "$#" )); do
 	case $1 in
-	 	--hivedb)
+	 	--hive-database)
 			hive_db=$2
 			shift
 			;;
-		--hive)
+		--with-hive)
 			use_hive=true
 			;;
-		--path)
+		--hdfs-path)
 			hdfs_path=$2
 			shift
 			;;
@@ -83,7 +83,7 @@ do
 	fi
 
 	data_name=$(basename "$f")
-	data_files=$(find "$f" -type f -not -name 'load.sql')
+	data_files=$(find "$f" -type f -not -name 'create.sql')
 	data_hdfs_path="$hdfs_path/$data_name"
 
 	echo "Processing $data_name dataset"
