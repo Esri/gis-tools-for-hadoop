@@ -1,67 +1,39 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.esri.hadoop</groupId>
+  <parent>
+    <groupId>com.esri.hadoop</groupId>
+    <artifactId>gis-tools-hadoop</artifactId>
+    <version>2.0</version>
+    <relativePath>../../</relativePath>
+  </parent>
+
   <artifactId>gis-tools-hadoop-samples</artifactId>
-  <version>1.0</version>
   <packaging>jar</packaging>
-
   <name>Sample GIS MapReduce Tools</name>
-  <url>http://github.com/Esri/gis-tools-for-hadoop</url>
-
-  <licenses>
-    <license>
-        <name>The Apache Software License, Version 2.0</name>
-        <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-        <distribution>repo</distribution>
-    </license>
-  </licenses>
-
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-    <java.source.version>1.6</java.source.version>
-    <java.target.version>1.6</java.target.version>
-
-    <!-- Versions for dependencies -->
-    <hadoop.version>2.2.0</hadoop.version>
-    <geometry.version>1.1</geometry.version>
-    <spatialsdk.version>1.1</spatialsdk.version>
-    <junit.version>4.11</junit.version>
-
-    <!-- Versions for plugins -->
-    <compiler.plugin.version>2.3.2</compiler.plugin.version>
-    <surefire.plugin.version>2.12</surefire.plugin.version>
-    <source.plugin.version>2.2.1</source.plugin.version>
-    <javadoc.plugin.version>2.8</javadoc.plugin.version>
-  </properties>
 
   <dependencies>
 
     <dependency>
       <groupId>org.apache.hadoop</groupId>
       <artifactId>hadoop-client</artifactId>
-      <version>${hadoop.version}</version>
-      <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>com.esri.hadoop</groupId>
       <artifactId>spatial-sdk-hive</artifactId>
-      <version>${spatialsdk.version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.esri.hadoop</groupId>
       <artifactId>spatial-sdk-json</artifactId>
-      <version>${spatialsdk.version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.esri.geometry</groupId>
       <artifactId>esri-geometry-api</artifactId>
-      <version>${geometry.version}</version>
     </dependency>
+
   </dependencies>
 
   <build>
@@ -69,19 +41,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>${compiler.plugin.version}</version>
-        <configuration>
-          <source>${java.source.version}</source>
-          <target>${java.target.version}</target>
-        </configuration>
       </plugin>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <version>${surefire.plugin.version}</version>
-        <configuration>
-          <argLine>-Xmx1024m</argLine>
-        </configuration>
       </plugin>
     </plugins>
   </build>

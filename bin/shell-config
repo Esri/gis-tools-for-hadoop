@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+WD=`dirname $0`
+GIS_HOME="$WD"/..
+ASSEMBLY_DIR="$GIS_HOME"/assembly/target
+
+# make sure assembly jar has been build
+jar_count=$(ls "$ASSEMBLY_DIR"/gis-tools-hadoop-assembly-*.jar 2> /dev/null | wc -l)
+if [ "$jar_count" == "0" ]
+then
+	echo "No assembly jar found.  Please build the project first."
+	exit 1
+fi
+
+ASSEMBLY_JAR=$(ls "$ASSEMBLY_DIR"/gis-tools-hadoop-assembly-*.jar)

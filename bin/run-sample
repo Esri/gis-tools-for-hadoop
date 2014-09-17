@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+source $(dirname "$0")/shell-config
+
+CLASSPATH="$CLASSPATH:$ASSEMBLY_JAR"
+
+hadoop jar $ASSEMBLY_JAR com.esri.hadoop.examples.SampleDriver "$@"

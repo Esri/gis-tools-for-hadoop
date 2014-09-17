@@ -1,0 +1,106 @@
+#!/usr/bin/env bash
+
+source $(dirname "$0")/shell-config
+
+sample_data_dir="$GIS_HOME"/samples/data
+
+if [ ! -d "$sample_data_dir" ]; then
+	echo "Failed to find sample data directory."
+	exit 1
+fi
+
+use_hive=false
+hive_db="mike"
+hdfs_path="./"
+
+# arguments
+while (( "$#" )); do
+	case $1 in
+	 	--hivedb)
+			hive_db=$2
+			shift
+			;;
+		--hive)
+			use_hive=true
+			;;
+		--path)
+			hdfs_path=$2
+			shift
+			;;
+		*)
+      		break
+      		;;
+	esac
+	shift
+done
+
+# relative paths need to be rooted for Hive table locations
+if [[ "$hdfs_path" != /* ]]; then
+	current_user=$(hdfs groups | cut -d " " -f1)
+	hdfs_path="/user/$current_user/$hdfs_path"
+fi
+
+# make sure path exists in HDFS
+hdfs dfs -test -d $hdfs_path
+if [[ "$?" == 0 ]]; then
+	echo "$hdfs_path already exists, remove or try another path"
+	exit 1
+fi
+
+# attempt to create sample directory
+hdfs dfs -mkdir -p $hdfs_path
+if [[ "$?" != 0 ]]; then
+	echo "Failed to create data directory"
+	exit 1;
+fi
+
+hive_export_error() {
+	HIVE_ERROR=`hive -S "$@" 2>&1 | grep "FAILED:"`
+}
+
+# create database and Hive init scripts
+if [ $use_hive == true ]; then
+	echo "Creating database '$hive_db' if it doesn't already exist"
+	hive_export_error -e "CREATE DATABASE IF NOT EXISTS $hive_db"
+	if [ "$HIVE_ERROR" ]; then
+		echo "Failed to create database '$hive_db'"
+		echo "Hive Error=$HIVE_ERROR"
+		exit 1
+	fi
+
+	# create hive init file
+	hive_init_script=$(mktemp)
+	trap 'rm $hive_init_script' EXIT
+	echo "ADD JAR $ASSEMBLY_JAR;" >> $hive_init_script
+	echo "USE $hive_db;" >> $hive_init_script
+fi
+
+for f in "$sample_data_dir"/*
+do
+	if [ -f $f ]; then
+		echo "Skipping $f"
+		continue
+	fi
+
+	data_name=$(basename "$f")
+	data_files=$(find "$f" -type f -not -name 'load.sql')
+	data_hdfs_path="$hdfs_path/$data_name"
+
+	echo "Processing $data_name dataset"
+	echo "  Uploading to $data_hdfs_path"
+	hdfs dfs -mkdir -p $data_hdfs_path
+	hdfs dfs -put $data_files $data_hdfs_path
+
+	if [ $use_hive == true ]; then
+		load_script="$f/create.sql"
+
+		if [ -f $load_script ]; then
+			echo "  Running Hive table create script"
+			# initialize with init script, execute table create script
+			hive_export_error -i $hive_init_script -d table.location=$data_hdfs_path -f $load_script
+			if [ "$HIVE_ERROR" ]; then
+				echo "  **$HIVE_ERROR"
+			fi
+		fi
+	fi
+done
