@@ -1,6 +1,7 @@
 package com.esri.hadoop.examples.pointinpolygon;
 import java.io.IOException;
 
+import org.apache.commons.io.IOUtils;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FSDataInputStream;
 import org.apache.hadoop.fs.FileSystem;
@@ -13,10 +14,13 @@ import org.apache.hadoop.mapreduce.Mapper;
 import com.esri.core.geometry.Envelope;
 import com.esri.core.geometry.Envelope2D;
 import com.esri.core.geometry.GeometryEngine;
+import com.esri.core.geometry.OperatorContains;
 import com.esri.core.geometry.Point;
 import com.esri.core.geometry.QuadTree;
 import com.esri.core.geometry.QuadTree.QuadTreeIterator;
 import com.esri.core.geometry.SpatialReference;
+import com.esri.hadoop.examples.QuadTreeHelper;
+import com.esri.json.EsriFeature;
 import com.esri.json.EsriFeatureClass;
 
 
@@ -26,56 +30,16 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 	int longitudeIndex;
 	int latitudeIndex;
 	
-
 	// in ca_counties.json, the label for the polygon is "NAME"
 	String labelAttribute;
 	
-	EsriFeatureClass featureClass;
-	SpatialReference spatialReference;
-	QuadTree quadTree;
-	QuadTreeIterator quadTreeIter;
+	QuadTreeHelper<EsriFeature> index;
 	
-	private void buildQuadTree(){
-		quadTree = new QuadTree(new Envelope2D(-180, -90, 180, 90), 8);
-		
-		Envelope envelope = new Envelope();
-		for (int i=0;i<featureClass.features.length;i++){
-			featureClass.features[i].geometry.queryEnvelope(envelope);
-			quadTree.insert(i, new Envelope2D(envelope.getXMin(), envelope.getYMin(), envelope.getXMax(), envelope.getYMax()));
-		}
-		
-		quadTreeIter = quadTree.getIterator();
-	}
-	
-	/**
-	 * Query the quadtree for the feature containing the given point
-	 * 
-	 * @param pt point as longitude, latitude
-	 * @return index to feature in featureClass or -1 if not found
-	 */
-	private int queryQuadTree(Point pt)
-	{
-		// reset iterator to the quadrant envelope that contains the point passed
-		quadTreeIter.resetIterator(pt, 0);
-		
-		int elmHandle = quadTreeIter.next();
-		
-		while (elmHandle >= 0){
-			int featureIndex = quadTree.getElement(elmHandle);
-			
-			// we know the point and this feature are in the same quadrant, but we need to make sure the feature
-			// actually contains the point
-			if (GeometryEngine.contains(featureClass.features[featureIndex].geometry, pt, spatialReference)){
-				return featureIndex;
-			}
-			
-			elmHandle = quadTreeIter.next();
-		}
-		
-		// feature not found
-		return -1;
-	}
-	
+	// it's usually a good idea to reuse objects used inside the map()
+	// method to cut down on excess object creation/garbage collection.
+	Point point = new Point();
+	Text outKey = new Text();
+	IntWritable one = new IntWritable(1);
 	
 	/**
 	 * Sets up mapper with filter geometry provided as argument[0] to the jar
@@ -85,8 +49,6 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 	{
 		Configuration config = context.getConfiguration();
 		
-		spatialReference = SpatialReference.create(4326);
-
 		// first pull values from the configuration		
 		String featuresPath = config.get("sample.features.input");
 		labelAttribute = config.get("sample.features.keyattribute", "NAME");
@@ -95,7 +57,7 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 		
 		FSDataInputStream iStream = null;
 		
-		spatialReference = SpatialReference.create(4326);
+		EsriFeatureClass featureClass = null;
 		
 		try {
 			// load the JSON file provided as argument 0
@@ -109,17 +71,24 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 		} 
 		finally
 		{
-			if (iStream != null)
-			{
-				try {
-					iStream.close();
-				} catch (IOException e) { }
-			}
+			IOUtils.closeQuietly(iStream);
 		}
 		
-		// build a quadtree of our features for fast queries
+		// calculate full extent of all features
+		Envelope2D fullExtent = new Envelope2D();
+		Envelope2D featureExtent = new Envelope2D();
+		for (EsriFeature feature : featureClass.features) {
+			feature.geometry.queryLooseEnvelope2D(featureExtent);
+			fullExtent.merge(featureExtent);
+		}
+		
+		index = new QuadTreeHelper<EsriFeature>(fullExtent, 8);
+		index.setSpatialReference(SpatialReference.create(4326));
+		
 		if (featureClass != null){
-			buildQuadTree();
+			for (EsriFeature feature : featureClass.features) {
+				index.insert(feature.geometry, feature);
+			}
 		}
 	}
 	
@@ -135,29 +104,36 @@ public class MapperClass extends Mapper<LongWritable, Text, Text, IntWritable> {
 		String line = val.toString();
 		String [] values = line.split(",");
 		
-		// Note: We know the data coming in is clean, but in practice it's best not to
-		//       assume clean data.  This is especially true with big data processing
-		float latitude = Float.parseFloat(values[latitudeIndex]);
-		float longitude = Float.parseFloat(values[longitudeIndex]);
+		float latitude, longitude;
 		
-		// Create our Point directly from longitude and latitude
-		Point point = new Point(longitude, latitude);
+		try {
+			latitude = Float.parseFloat(values[latitudeIndex]);
+			longitude = Float.parseFloat(values[longitudeIndex]);
+		} catch (NumberFormatException e) {
+			// one of these values isn't a valid number, we
+			// can't continue with this record
+			return;
+		}
 		
-		// Each map only processes one earthquake record at a time, so we start out with our count 
-		// as 1.  Aggregation will occur in the combine/reduce stages
-		IntWritable one = new IntWritable(1);
+		// set point directly from longitude and latitude
+		point.setXY(longitude, latitude);
 		
-		int featureIndex = queryQuadTree(point);
-		
-		if (featureIndex >= 0){
-			String name = (String)featureClass.features[featureIndex].attributes.get(labelAttribute);
+		// query index for first feature that contains our point
+		EsriFeature feature = index.queryFirst(point, OperatorContains.local(), false);
+
+		if (feature != null){
+			String name = (String)feature.attributes.get(labelAttribute);
 			
 			if (name == null) 
 				name = "???";
 			
-			context.write(new Text(name), one);
+			outKey.set(name);
 		} else {
-			context.write(new Text("*Outside Feature Set"), one);
+			outKey.set("*Outside Feature Set");
 		}
+		
+		// Each map only processes one earthquake record at a time, so we start out with our count 
+		// as 1.  Aggregation will occur in the combine/reduce stages
+		context.write(outKey, one);
 	}
 }

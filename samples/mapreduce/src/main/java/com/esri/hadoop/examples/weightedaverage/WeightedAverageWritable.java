@@ -17,6 +17,11 @@ public class WeightedAverageWritable implements Writable {
 		this.count = count;
 		this.sum = sum;
 	}
+	
+	public void reset(long count, double sum) {
+		this.count = count;
+		this.sum = sum;
+	}
 
 	public long getCount(){
 		return count;
