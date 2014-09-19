@@ -31,7 +31,7 @@
 
     <!-- Versions for dependencies -->
     <hadoop.version>2.2.0</hadoop.version>
-    <geometry.version>1.1</geometry.version>
+    <geometry.version>1.2</geometry.version>
     <spatialsdk.version>1.1</spatialsdk.version>
     <junit.version>4.11</junit.version>
 
