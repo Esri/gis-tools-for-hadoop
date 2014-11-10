@@ -7,6 +7,11 @@ for spatial analysis of big data.  The tools make use of
 the [Geoprocessing Tools for Hadoop](https://github.com/Esri/geoprocessing-tools-for-hadoop) toolbox,
 to provide access to the Hadoop system from the ArcGIS Geoprocessing environment. 
 
+
+## What's New
+
+* Huge improvements in performance for Hive `ST_Geometry` UDFs (in the Spatial Framework for Hadoop), in August 2014.
+
 ## Features
 
 * Sample tools that demonstrate full stack implementations of all the resources provided to solve GIS problems 
@@ -62,7 +67,7 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing)
 
 ## Licensing
-Copyright 2013 Esri
+Copyright 2013-2014 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
