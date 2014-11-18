@@ -4,7 +4,7 @@
 
 #NAME_NODE_URL=hdfs:/localhost:8020
 #JOB_TRACKER_URL=localhost:8021
-SAMPLE_DIR=/user/randall/trip
+SAMPLE_DIR=/user/${USER}/trip
 STUDY_AREA=sample-study-area.json
 DATA_FILE=sample-vehicle-positions.csv
 THRESHOLD=15
@@ -30,9 +30,18 @@ hadoop fs -rm -r $INTER_DIR $OUTPUT_DIR \
 echo "* setting up sample in $SAMPLE_DIR"
 hadoop fs -mkdir $SAMPLE_DIR $DATA_DIR
 
+if [ ! -f run-it.sh ]; then
+    cd `dirname $0`
+    pwd
+fi
+
 echo "* copying sample data to HDFS"
 hadoop fs -put ../$STUDY_AREA $DATA_DIR/
 hadoop fs -put ../$DATA_FILE $DATA_DIR/
+
+if [ ! -f ../$TRIP_LIB ]; then
+    (cd ..; ant || echo UNABLE TO BUILD JAR)
+fi
 
 echo "* executing MapReduce jobs"
 env HADOOP_CLASSPATH=$LIB_DIR/$GEOM_LIB:$LIB_DIR/$SPATIAL_SDK \
