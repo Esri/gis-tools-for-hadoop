@@ -10,7 +10,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 
 ## What's New
 
-* Huge improvements in performance for Hive `ST_Geometry` UDFs (in the Spatial Framework for Hadoop), in August 2014.
+* Support for escaped characters in JSON strings in `UnenclosedJsonRecordReader` (in the Spatial Framework for Hadoop), merged to master in January 2015.
 
 ## Features
 
@@ -67,7 +67,7 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing)
 
 ## Licensing
-Copyright 2013-2014 Esri
+Copyright 2013-2015 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
