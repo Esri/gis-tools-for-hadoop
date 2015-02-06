@@ -10,7 +10,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 
 ## What's New
 
-* Support for escaped characters in JSON strings in `UnenclosedJsonRecordReader` (in the Spatial Framework for Hadoop), merged to master in January 2015.
+* Support for escaped characters in strings in Unenclosed JSON (in the Spatial Framework for Hadoop), merged to master in January 2015.
 
 ## Features
 
@@ -22,9 +22,10 @@ using Hadoop
 ![GIS Tools Breakdown](http://esri.github.com/gis-tools-for-hadoop/images/gis-tools-breakdown.png)
 
 **Resources for building custom tools**
+
 * [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-for-hadoop) 
- * Java helper utilities for Hadoop developers
- * Hive spatial user-defined functions 
+  * Java helper utilities for Hadoop developers
+  * Hive spatial user-defined functions 
 * [Esri Geometry API Java](https://github.com/Esri/geometry-api-java) - Java geometry library for spatial data 
 processing 
 * [Geoprocessing Tools](https://github.com/Esri/geoprocessing-tools-for-hadoop) - ArcGIS Geoprocessing tools 
