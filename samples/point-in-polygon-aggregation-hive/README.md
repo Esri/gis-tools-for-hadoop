@@ -26,7 +26,8 @@ create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';
 Define a schema for the [earthquake data](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/data/earthquake-data).  The earthquake data is in CSV (comma-separated values) format, which is natively supported by Hive.
 
 ```sql
-CREATE EXTERNAL TABLE IF NOT EXISTS earthquakes (earthquake_date STRING, latitude DOUBLE, longitude DOUBLE, magnitude DOUBLE)
+CREATE EXTERNAL TABLE IF NOT EXISTS earthquakes (earthquake_date STRING, latitude DOUBLE, longitude DOUBLE, depth DOUBLE, magnitude DOUBLE,
+    magtype string, mbstations string, gap string, distance string, rms string, source string, eventid string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION '${env:HOME}/esri-git/gis-tools-for-hadoop/samples/data/earthquake-data';
 ```

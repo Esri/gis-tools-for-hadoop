@@ -5,7 +5,8 @@ add jar
 create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
 create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';
 
-CREATE EXTERNAL TABLE IF NOT EXISTS earthquakes (earthquake_date STRING, latitude DOUBLE, longitude DOUBLE, magnitude DOUBLE)
+CREATE EXTERNAL TABLE IF NOT EXISTS earthquakes (earthquake_date STRING, latitude DOUBLE, longitude DOUBLE, depth DOUBLE, magnitude DOUBLE,
+    magtype string, mbstations string, gap string, distance string, rms string, source string, eventid string)
 ROW FORMAT DELIMITED FIELDS TERMINATED BY ','
 LOCATION '${env:HOME}/esri-git/gis-tools-for-hadoop/samples/data/earthquake-data';
 
