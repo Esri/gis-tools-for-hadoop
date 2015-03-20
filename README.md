@@ -1,6 +1,6 @@
 gis-tools-for-hadoop
 ====================
-
+![2013 NYC Taxi data aggregated](https://github.com/Esri/gis-tools-for-hadoop/blob/master/header.PNG?raw=true)
 The [__GIS Tools for Hadoop__](http://esri.github.io/gis-tools-for-hadoop/) are a collection of GIS tools that leverage 
 the [Spatial Framework for Hadoop](https://github.com/Esri/spatial-framework-for-hadoop)
 for spatial analysis of big data.  The tools make use of 
