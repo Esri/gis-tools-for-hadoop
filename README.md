@@ -11,7 +11,6 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 ## What's New
 
 * [Tutorial: Aggregating data into bins](https://github.com/Esri/gis-tools-for-hadoop/wiki/Aggregating-CSV-Data-%28Spatial-Binning%29)
-* Support for escaped characters in strings in Unenclosed JSON (in the Spatial Framework for Hadoop), merged to master in January 2015.
 
 ## Features
 
