@@ -10,6 +10,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 
 ## What's New
 
+* [Tutorial: Aggregating data into bins](https://github.com/Esri/gis-tools-for-hadoop/wiki/Aggregating-CSV-Data-%28Spatial-Binning%29)
 * Support for escaped characters in strings in Unenclosed JSON (in the Spatial Framework for Hadoop), merged to master in January 2015.
 
 ## Features
@@ -36,7 +37,7 @@ for Hadoop
 
 Start out by navigating to [samples](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples) and 
 following the instructions provided with each sample.  Once you are comfortable with the whole setup, check out 
-the templates and see if they can be tailored to fit your big data GIS needs.
+the templates and see if they can be tailored to fit your big data GIS needs. [There are also tutorials](https://github.com/Esri/gis-tools-for-hadoop/wiki) for using the GP tools and aggregation methods.
 
 ## Requirements
 
@@ -55,6 +56,8 @@ Additional requirements will be spelled out by tools or templates.
 
 ## Resources
 
+* [GeoData Blog on the ArcGIS Blogs](http://blogs.esri.com/esri/arcgis/author/jonmurphy/)
+* [Big Data Place on GeoNet](https://geonet.esri.com/groups/big-data)
 * [ArcGIS Geodata Resource Center]( http://resources.arcgis.com/en/communities/geodata/)
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 * [twitter@esri](http://twitter.com/esri)
