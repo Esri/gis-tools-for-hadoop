@@ -11,6 +11,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 ## What's New
 
 * [Tutorial: Aggregating data into bins](https://github.com/Esri/gis-tools-for-hadoop/wiki/Aggregating-CSV-Data-%28Spatial-Binning%29)
+* [Tutorial: Correcting your ArcGIS Projection](https://github.com/Esri/gis-tools-for-hadoop/wiki/Correcting-Projection-in-ArcGIS)
 
 ## Features
 
