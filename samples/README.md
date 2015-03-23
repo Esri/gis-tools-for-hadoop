@@ -1,6 +1,6 @@
 ## Sample Tools
 
-These sample tools are provided as references for building custom spatial tools. We currently have three samples, two of which use MaprReduce algorithms, while one uses Hive:
+These sample tools are provided as references for building custom spatial tools. We currently have three samples, two of which use MapReduce algorithms, while one uses Hive:
 
 1. To try out a point in polgon aggregation using hive using global earthquake data and california county polygons, try the [point-in-polygon-aggregation-hive](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/point-in-polygon-aggregation-hive) sample. 
 
