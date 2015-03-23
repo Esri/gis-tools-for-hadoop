@@ -16,7 +16,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 
 * Sample tools that demonstrate full stack implementations of all the resources provided to solve GIS problems 
 using Hadoop
-* Templates for building custom tools that solve specific problems
+
 
 
 ![GIS Tools Breakdown](http://esri.github.com/gis-tools-for-hadoop/images/gis-tools-breakdown.png)
@@ -39,7 +39,7 @@ following the instructions provided with each sample.[There are also tutorials](
 
 ## Requirements
 
-Requirements will differ depending on the needs of each tool or template. At a minimum, you will need:
+Requirements will differ depending on the needs of each tool. At a minimum, you will need:
 
 * Access to an [Apache Hadoop](http://hadoop.apache.org) cluster
 * [ArcGIS for Desktop](http://www.esri.com/software/arcgis/arcgis-for-desktop) or 
@@ -50,7 +50,7 @@ Other requirements may include:
 * [Apache Hive](http://hive.apache.org/) in order to run Hive queries
 * [Apache Oozie Workflow Scheduler](http://oozie.apache.org/) for workflow scheduling
 
-Additional requirements will be spelled out by tools or templates.
+Additional requirements will be spelled out by individual tools.
 
 ## Resources
 
