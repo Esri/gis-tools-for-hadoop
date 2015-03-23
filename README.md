@@ -35,8 +35,7 @@ for Hadoop
 ## Instructions
 
 Start out by navigating to [samples](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples) and 
-following the instructions provided with each sample.  Once you are comfortable with the whole setup, check out 
-the templates and see if they can be tailored to fit your big data GIS needs. [There are also tutorials](https://github.com/Esri/gis-tools-for-hadoop/wiki) for using the GP tools and aggregation methods.
+following the instructions provided with each sample.[There are also tutorials](https://github.com/Esri/gis-tools-for-hadoop/wiki) for using the GP tools and aggregation methods.
 
 ## Requirements
 
