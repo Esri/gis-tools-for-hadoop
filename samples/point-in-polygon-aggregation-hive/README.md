@@ -82,7 +82,7 @@ Alternatively, you can run the entire sample using `run-sample.sql`.
 First move to the Hive sample directory and run Hive.
 
 ```bash
-cd ~/esri-git/gis-tools-for-hadoop/samples/point-in-polygon-aggregation-hive/cmd
+cd ~/esri-git/gis-tools-for-hadoop/samples/point-in-polygon-aggregation-hive
 hive -S
 ```
 
