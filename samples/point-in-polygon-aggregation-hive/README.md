@@ -2,7 +2,7 @@
 
 First start the Hive Command line (Hive CLI).  If you do not have Hive installed, see [Hive Installation](https://cwiki.apache.org/confluence/display/Hive/GettingStarted#GettingStarted-InstallationandConfiguration) - this sample requires Hive 0.10.0 or above (or Hive 0.9.0 patched with [HIVE-2736](https://issues.apache.org/jira/browse/HIVE-2736)). 
 
-> **Note**: on Hive 0.11 and Hive 0.12, it may be necessary to copy the JAR files for Spatial-Framework-for-Hadoop and Geometry-API-Java to `$HIVE_HOME/lib`, to [work around a Hive bug](https://github.com/Esri/gis-tools-for-hadoop/issues/9).
+> **Note**: on Hive 0.11 and Hive 0.12, it may be necessary to copy the JAR files for Spatial-Framework-for-Hadoop and Geometry-API-Java to `$HIVE_HOME/lib`, to [work around a Hive bug](https://github.com/Esri/gis-tools-for-hadoop/issues/9). See [here](https://github.com/Esri/spatial-framework-for-hadoop/wiki/ST_Geometry-for-Hive-Compatibility-with-Hive-Versions) for a complete list of hive compatibilities with ST_Geoemtry.
 
 ```bash
 # use '-S' for silent mode
@@ -89,5 +89,5 @@ hive -S
 Now run the sample sql file from within Hive
 
 ```bash
-source run-sample.sql
+source run-sample.sql;
 ```
