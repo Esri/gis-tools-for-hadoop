@@ -15,13 +15,13 @@ Add the required external libraries and create temporary functions for the geome
 ```bash
 add jar
   ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/esri-geometry-api.jar
-  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/spatial-sdk-hadoop.jar
+  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/spatial-sdk-hadoop.jar;
   
 create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
 create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';
 ```
 
-> This is a minimum implementation the ST_Geometry user defined functions found in the [Hive Spatial Library](https://github.com/Esri/spatial-framework-for-hadoop/wiki/Hive-Spatial).  The full list of functions is available in the linked repository.
+> This is a minimum implementation the ST_Geometry user defined functions found in the [Hive Spatial Library](https://github.com/Esri/spatial-framework-for-hadoop/wiki/Hive-Spatial).  The full list of functions is available in the [linked repository](https://github.com/Esri/spatial-framework-for-hadoop/wiki/UDF-Documentation).
 
 Define a schema for the [earthquake data](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/data/earthquake-data).  The earthquake data is in CSV (comma-separated values) format, which is natively supported by Hive.
 
