@@ -10,6 +10,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 
 ## What's New
 
+* [Tutorial: An Introduction for Beginners] (https://github.com/Esri/gis-tools-for-hadoop/wiki/GIS-Tools-for-Hadoop-for-Beginners)
 * [Tutorial: Aggregating Data Into Bins](https://github.com/Esri/gis-tools-for-hadoop/wiki/Aggregating-CSV-Data-%28Spatial-Binning%29)
 * [Tutorial: Correcting your ArcGIS Projection](https://github.com/Esri/gis-tools-for-hadoop/wiki/Correcting-Projection-in-ArcGIS)
 * [Updated Wiki page for the Spatial-Framework-for-Hadoop](https://github.com/Esri/spatial-framework-for-hadoop/wiki)
