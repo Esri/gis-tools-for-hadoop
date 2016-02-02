@@ -8,4 +8,4 @@ These sample tools are provided as references for building custom spatial tools.
 
 3. To complete the sample MapReduce algorithm used in the [Vehicle Trip Discovery Blog post](http://blogs.esri.com/esri/arcgis/2013/08/09/vehicle-trip-discovery-with-gis-tools-for-hadoop/), use the [trip-discovery](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/trip-discovery) sample.
 
-After completing a sample and becoming comfortable with the framework, you can complete the [tutorials](https://github.com/Esri/gis-tools-for-hadoop/wiki), or work on builiding your own custom tools. 
+After completing a sample and becoming comfortable with the framework, you can complete the [tutorials](https://github.com/Esri/gis-tools-for-hadoop/wiki), or work on building your own custom tools. 
