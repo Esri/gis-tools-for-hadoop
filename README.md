@@ -88,7 +88,3 @@ limitations under the License.
 
 A copy of the license is available in the repository's 
 [license.txt](https://raw.github.com/Esri/gis-tools-for-hadoop/master/license.txt) file.
-
-[](Esri Tags: ArcGIS, GIS, Analysis, Big Data, GP, Geoprocessing, Hadoop, Hive, Oozie, Workflow, JSON, Java)
-[](Esri Language: Python)
-
