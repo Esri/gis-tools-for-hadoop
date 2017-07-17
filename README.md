@@ -11,7 +11,7 @@ to provide access to the Hadoop system from the ArcGIS Geoprocessing environment
 ## What's New
 
 * [Sample: direct use of Enclosed and Unenclosed Esri- and Geo- JSON InputFormats](samples/json-mr)
-* [Update: use updated non-deprecated names `EsriJsonSerDe` and `EnclosedEsriJsonInputFormat` in samples after having added support for GeoJSON
+* Update: use updated non-deprecated names `EsriJsonSerDe` and `EnclosedEsriJsonInputFormat` in samples after having added support for GeoJSON
 * [Tutorial: An Introduction for Beginners] (https://github.com/Esri/gis-tools-for-hadoop/wiki/GIS-Tools-for-Hadoop-for-Beginners)
 
 
