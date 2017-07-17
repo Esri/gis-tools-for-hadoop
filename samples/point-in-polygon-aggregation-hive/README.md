@@ -56,9 +56,9 @@ STORED AS TEXTFILE;
 Define a schema for the [California counties data](https://github.com/Esri/gis-tools-for-hadoop/tree/master/samples/data/counties-data).  The counties data is stored as [Enclosed JSON](https://github.com/Esri/spatial-framework-for-hadoop/wiki/JSON-Formats).  
 
 ```sql
-CREATE TABLE counties (Area string, Perimeter string, State string, County string, Name string, BoundaryShape binary)                                         
-ROW FORMAT SERDE 'com.esri.hadoop.hive.serde.JsonSerde'              
-STORED AS INPUTFORMAT 'com.esri.json.hadoop.EnclosedJsonInputFormat'
+CREATE TABLE counties (Area string, Perimeter string, State string, County string, Name string, BoundaryShape binary)                  
+ROW FORMAT SERDE 'com.esri.hadoop.hive.serde.EsriJsonSerDe'
+STORED AS INPUTFORMAT 'com.esri.json.hadoop.EnclosedEsriJsonInputFormat'
 OUTPUTFORMAT 'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat';
 ```
 

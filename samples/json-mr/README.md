@@ -14,11 +14,15 @@ hadoop fs -put data/*.json data/
 export HADOOP_CLASSPATH=../lib/esri-geometry-api.jar:../lib/spatial-sdk-hadoop.jar
 libjars="-libjars ../lib/esri-geometry-api.jar,../lib/spatial-sdk-hadoop.jar"
 
-hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${lj} enc esri data/test15eej.json eejs-out
+# hdfs dfs -rmdir eejs-out >/dev/null 2>&1 || /bin/true
+hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${libjars} enc esri data/test15eej.json eejs-out
 
-hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${lj} enc geojs data/test15egj.json egjs-out
+# hdfs dfs -rmdir egjs-out >/dev/null 2>&1
+hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${libjars} enc geojs data/test15egj.json egjs-out
 
-hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${lj} unenc esri data/test15uej.json uejs-out
+# hdfs dfs -rmdir uejs-out >/dev/null 2>&1
+hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${libjars} unenc esri data/test15uej.json uejs-out
 
-hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${lj} unenc geojs data/test15ugj.json ugjs-out
+# hdfs dfs -rmdir ugjs-out >/dev/null 2>&1
+hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${libjars} unenc geojs data/test15ugj.json ugjs-out
 ```
