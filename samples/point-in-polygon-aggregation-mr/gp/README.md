@@ -28,11 +28,11 @@ Your directory structure in HDFS should look something like this:
       job/
         aggregation-sample.jar
         esri-geometry-api.jar
-        spatial-sdk-hadoop.jar
+        spatial-sdk-json-1.2.0.jar
         workflow.xml
 ```
 
-* `esri-geometry-api.jar` and `spatial-sdk-hadoop` can be found in `samples/lib`.  
+* `esri-geometry-api.jar` and `spatial-sdk-json-1.2.0.jar` can be found in `samples/lib`.  
 * `aggregation-sample.jar` is in the root directory of this sample
 * `workflow.xml` is in this directory
 

@@ -21,7 +21,7 @@ hadoop fs -put ../../data/earthquake-data/* $DATA_DIR/earthquake-data
 echo "* executing MapReduce job"
 hadoop jar ../aggregation-sample.jar \
            com.esri.hadoop.examples.AggregationSampleDriver \
-           -libjars ../../lib/esri-geometry-api.jar,../../lib/spatial-sdk-hadoop.jar \
+           -libjars ../../lib/esri-geometry-api.jar,../../lib/spatial-sdk-json-1.2.0.jar \
            hdfs://$DATA_DIR/counties-data/california-counties.json \
            hdfs://$DATA_DIR/earthquake-data/earthquakes.csv \
            hdfs://$OUTPUT_DIR
