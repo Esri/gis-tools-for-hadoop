@@ -31,7 +31,8 @@ Add the required external libraries and create temporary functions for the geome
 ```bash
 add jar
   ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/esri-geometry-api.jar
-  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/spatial-sdk-hadoop.jar;
+  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/spatial-sdk-hive-1.2.0.jar
+  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/spatial-sdk-json-1.2.0.jar;
   
 create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
 create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';

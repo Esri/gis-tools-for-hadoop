@@ -26,12 +26,12 @@ Your directory structure in HDFS should look something like this:
         sample-vehicle-positions.csv
       job/
         esri-geometry-api.jar
-        spatial-sdk-hadoop.jar
+        spatial-sdk-json-1.2.0.jar
         trip-discovery.jar
         workflow.xml
 ```
 
-* `esri-geometry-api.jar` and `spatial-sdk-hadoop` can be found in `samples/lib`.  
+* `esri-geometry-api.jar` and `spatial-sdk-json-1.2.0.jar` can be found in `samples/lib`.  
 * `trip-discovery.jar` is in the root directory of this sample
 * `workflow.xml` is in this directory (i.e. this `gp` subdirectory)
 
