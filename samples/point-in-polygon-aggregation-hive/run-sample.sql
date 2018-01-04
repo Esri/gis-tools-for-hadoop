@@ -1,7 +1,7 @@
 add jar
-  ../lib/esri-geometry-api.jar
-  ../lib/spatial-sdk-hive-1.2.0.jar
-  ../lib/spatial-sdk-json-1.2.0.jar;
+  ../lib/esri-geometry-api-2.0.0.jar
+  ../lib/spatial-sdk-hive-2.0.0.jar
+  ../lib/spatial-sdk-json-2.0.0.jar;
 
 create temporary function ST_Point as 'com.esri.hadoop.hive.ST_Point';
 create temporary function ST_Contains as 'com.esri.hadoop.hive.ST_Contains';

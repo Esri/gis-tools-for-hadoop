@@ -18,8 +18,8 @@ LIB_DIR=../../lib
 DATA_DIR=$SAMPLE_DIR/data
 INTER_DIR=$SAMPLE_DIR/inter
 OUTPUT_DIR=$SAMPLE_DIR/output
-GEOM_LIB=esri-geometry-api.jar
-SPATIAL_SDK=spatial-sdk-json-1.2.0.jar
+GEOM_LIB=esri-geometry-api-2.0.0.jar
+SPATIAL_SDK=spatial-sdk-json-2.0.0.jar
 TRIP_LIB=trip-discovery.jar
 RESULTS=results.txt
 
