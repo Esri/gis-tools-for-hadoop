@@ -11,8 +11,8 @@ in Enclosed or Unenclosed form - examples follow:
 ```
 ant  # may need to adjust Hadoop version in build.xml
 hadoop fs -put data/*.json data/
-export HADOOP_CLASSPATH=../lib/esri-geometry-api.jar:../lib/spatial-sdk-json-1.2.0.jar
-libjars="-libjars ../lib/esri-geometry-api.jar,../lib/spatial-sdk-json-1.2.0.jar"
+export HADOOP_CLASSPATH=../lib/esri-geometry-api-2.0.0.jar:../lib/spatial-sdk-json-2.0.0.jar
+libjars="-libjars ../lib/esri-geometry-api-2.0.0.jar,../lib/spatial-sdk-json-2.0.0.jar"
 
 # hdfs dfs -rmdir eejs-out >/dev/null 2>&1 || /bin/true
 hadoop jar json-mr-sample.jar com.esri.hadoop.examples.json.JsonInputSample ${libjars} enc esri data/test15eej.json eejs-out
