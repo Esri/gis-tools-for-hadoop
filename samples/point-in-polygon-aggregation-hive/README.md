@@ -30,7 +30,7 @@ hive
 Add the required external libraries and create temporary functions for the geometry api calls.
 ```bash
 add jar
-  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/esri-geometry-api.jar
+  ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/esri-geometry-api-2.0.0.jar
   ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/spatial-sdk-hive-2.0.0.jar
   ${env:HOME}/esri-git/gis-tools-for-hadoop/samples/lib/spatial-sdk-json-2.0.0.jar;
   
