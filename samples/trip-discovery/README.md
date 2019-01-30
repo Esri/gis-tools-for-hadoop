@@ -1,5 +1,5 @@
 This sample MapReduce application, consists of the source code for
-[Vehicle Trip Discovery with GIS Tools for Hadoop](http://blogs.esri.com/esri/arcgis/2013/08/09/vehicle-trip-discovery-with-gis-tools-for-hadoop/).
+[Vehicle Trip Discovery with GIS Tools for Hadoop](https://github.com/Esri/gis-tools-for-hadoop/wiki/Vehicle-Trip-Discovery-with-GIS-Tools-for-Hadoop).
 It finds places within the study area, that have the highest numbers of trips with nearly common
 origin and destination locations, using GPS position data.
 We defined trips based on a stoppage time of more than 15 minutes between data points.
